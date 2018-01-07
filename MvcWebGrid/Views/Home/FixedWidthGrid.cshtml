@@ -1,0 +1,364 @@
+﻿@{
+    ViewBag.Title = "FixedWidthGrid";
+}
+@model IEnumerable<MvcWebGrid.Models.BookOrdermodel>
+<h2>
+    FixedWidthGrid</h2>
+<link href="../../media/css/demo_table.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../media/js/jquery.js"></script>
+<script type="text/javascript" src="../../media/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="../../media/js/FixedColumns.js"></script>
+<script type="text/javascript" src="../../media/js/GetData.js"></script>
+<style>
+    .ajax
+    {
+        background-color: #EEEEEE;
+        border: 1px solid #DDDDDD;
+        display: block;
+        left: 40%;
+        position: absolute;
+        top: 50%;
+        width: 500px;
+        height: 90px;
+        z-index: 999;
+    }
+    #blur
+    {
+        width: 200%;
+        background-color: black;
+        moz-opacity: 0.5;
+        khtml-opacity: .5;
+        opacity: .5;
+        filter: alpha(opacity=50);
+        z-index: 120;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    
+    #progress
+    {
+        z-index: 200;
+        background-color: White;
+        position: absolute;
+        top: 0pt;
+        left: 0pt;
+        border: solid 1px black;
+        padding: 5px 5px 5px 5px;
+        text-align: center;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        ///setting modal pop up 
+        //        $("#dialog-modal").dialog({
+        //            autoOpen: false,
+        //            title: "Add Client",
+        //            width: 410,
+        //            modal: true
+
+        //        });
+
+
+
+        //                $('#grid').dataTable({
+        //                    //"oLanguage": { "sSearch": "Search the nominees:" },
+        //                    "iDisplayLength": 10,
+        //                    "aaSorting": [[0, "asc"]]
+        //                });
+        // selectedRows();
+        var oTable = $('#grid').dataTable({
+            "sScrollX": "100%",
+            "sScrollXInner": "150%",
+            "bScrollCollapse": true
+        });
+        new FixedColumns(oTable, {
+            "iLeftColumns": 2,
+            "iLeftWidth": 350
+        });
+
+
+
+
+
+        $("#btnFetchData").click(function () {
+
+            $.ajax({
+                type: "POST",
+                url: "Home/GetData",
+                data: "{ 'address':'" + $('#txtAddress').val() + "'}",
+                beforeSend: function () {
+                    // Show your spinner
+                    $("#dvAjax").css('display', 'block');
+                    loadingImg();
+                },
+                complete: function () {
+                    // Hide your spinner
+                    $("#dvAjax").css('display', 'none');
+                },
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    alert(response);
+                    for (var i = 0; i < response.length; i++) {
+                        //                        alert(response[i].book.BookID);
+                        //                        alert(response[i].order.PaymentMode);
+                    }
+                },
+                failure: function (errMsg) {
+                    $('#errorMessage').text(errMsg); //errorMessage is id of the div
+                }
+            });
+        });
+
+
+
+        $(".cbclass").live('click', function () {
+            if ($(this).attr('checked')) {
+                //                       $(this).parent().parent().children().find(".txtBoxCSS").attr("disabled", "disabled");
+                //                       $(this).parent().parent().children().find(".ddlCSS").attr("disabled", "disabled");
+
+                var text = $(this).parent().parent().children().find(".spBookNm").html();
+                //alert($(this).parent("tr").children().find(".spBookNm").html());
+                alert(text);
+                //  alert($(this).find('td:eq(1)').text());
+                //   alert($(this).find("td:eq(1)").html());
+
+            }
+            else {
+
+
+            }
+
+
+
+        });
+
+
+
+
+
+    });
+
+
+    function selectedRows() {
+
+        $('tr').click(function () {
+            $('tr').removeClass('selected');
+            $(this).addClass('selected');
+
+            var td = $(this).children('td');
+            for (var i = 0; i < td.length; ++i) {
+                alert(i + ': ' + td[i].innerText);
+            }
+        });
+
+
+
+
+        //        var selectedItems = $('#grid').find(':checkbox:checked').parents('tr'); //this is a function to get the selected rows, but it is no a different script page
+        //        alert(selectedItems);         
+        //        var serial, kanbanNumber, customer, description, quantity;
+
+        //        $.each(selectedItems, function (i, item) {
+        //            var td = $(this).children('td');
+
+        //            for (var i = 0; i < td.length; ++i) {
+        //                alert('hi');
+        //                alert(td[1].html());
+        //            }
+        //            //console.log(serial + ' ' + kanbanNumber + ' ' + customer + ' ' + description + '     ' + quantity);
+        //            //return;
+        //        });
+
+    }
+    //    function funOpenDiv(id) {
+
+
+    //        $.ajax({
+    //            type: "POST",
+    //            url: "Home/GetBookDetails",
+    //            data: "{ 'id':" + id + "}",
+    //            beforeSend: function () {
+    //                // Show your spinner
+    //                $("#dvAjax").css('display', 'block');
+    //                loadingImg();
+    //            },
+    //            complete: function () {
+    //                // Hide your spinner
+    //                $("#dvAjax").css('display', 'none');
+    //            },
+    //            contentType: "application/json; charset=utf-8",
+    //            dataType: "json",
+    //            success: function (response) {
+    //                alert(response);
+    //                $("#dialog-modal").html(response);
+    //                //                $("#dialog-modal").dialog({
+    //                //                    height: 140,
+    //                //                    modal: true
+    //                //                });
+    //                $("#dialog-modal").dialog("open");
+
+    //            },
+    //            failure: function (errMsg) {
+    //                $('#errorMessage').text(errMsg); //errorMessage is id of the div
+    //            }
+    //        });
+
+    //    }
+
+
+
+
+
+
+
+
+
+    function loadingImg() {
+        if (document.getElementById) {
+            var progress = document.getElementById('progress');
+            var blur = document.getElementById('blur');
+            progress.style.width = '300px';
+            progress.style.height = '30px';
+            blur.style.height = document.documentElement.clientHeight;
+            progress.style.top = document.documentElement.clientHeight / 3 - progress.style.height.replace('px', '') / 2 + 'px';
+            progress.style.left = document.body.offsetWidth / 2 - progress.style.width.replace('px', '') / 2 + 'px';
+        }
+    }
+
+</script>
+<script type="text/javascript">
+    //    $(document).ready(function () {
+
+
+    //        ///setting modal pop up 
+    //        $("#dialog-modal").dialog({
+    //            autoOpen: false,
+    //            title: "Add Client",
+    //            width: 410,
+    //            modal: true
+
+    //        });
+    //    });
+    function OpenPopup(id) {
+        var hasdata = false;
+        $.ajax({
+            type: "POST",
+            url: "Home/GetBookDetails",
+            data: "{ 'id':" + id + "}",
+            beforeSend: function () {
+                // Show your spinner
+                $("#dvAjax").css('display', 'block');
+                loadingImg();
+            },
+            complete: function () {
+                // Hide your spinner
+                $("#dvAjax").css('display', 'none');
+
+            },
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                alert(response);
+                var GetValue = new Array();
+                GetValue = response.split("~")
+                alert(GetValue[0]);
+                alert(GetValue[1]);
+                alert(GetValue[2]);
+                if (GetValue[0] != "") {
+                    $('#dvCondition1').html("");
+                    $('#dvCondition1').html(GetValue[0]);
+                    hasdata = true;
+                }
+                if (GetValue[1] != "") {
+                    $('#dvCondition2').html("");
+                    $('#dvCondition2').html(GetValue[1]);
+                    hasdata = true;
+                }
+                if (GetValue[2] != "") {
+                    $('#dvCondition3').html("");
+                    $('#dvCondition3').html(GetValue[1]);
+                    hasdata = true;
+                }
+                if (hasdata == true) {
+                    //                    $("#dialog-modal").dialog({
+                    //                        height: 140,
+                    //                        modal: true
+                    //                    });
+                }
+            },
+            failure: function (errMsg) {
+                $('#errorMessage').text(errMsg); //errorMessage is id of the div
+            }
+        });
+
+    }
+</script>
+<table id="grid" class="display">
+    <thead>
+        <tr>
+            <th>
+                Select
+            </th>
+            <th>
+                BookID
+            </th>
+            <th>
+                BookNm
+            </th>
+            <th>
+                PaymentMode
+            </th>
+            <th>
+                city
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <input  class="cbclass" type="checkbox" id="@item.book.BookID" />
+                    <span style="display: none" class="spBookNm">@item.book.BookNm</span>
+                </td>
+                <td>
+                    <a href="javascript:OpenPopup('@item.book.BookID');">@item.book.BookID</a>
+                </td>
+                <td>
+                    <span class="spBookNm">@item.book.BookNm</span>
+                </td>
+                <td>@item.order.PaymentMode
+                </td>
+                <td>@item.order.city
+                </td>
+            </tr> 
+        }
+    </tbody>
+</table>
+<input type="text" id="txtAddress" /><br />
+<input type="button" id="btnFetchData" value="FetchData" />
+<div id="dvAjax" style="display: none">
+    <div id="blur">
+        &nbsp;</div>
+    <div id="progress">
+        <img src="../../images/loading.gif" />
+    </div>
+</div>
+<div id="dialog-modal" title="Basic dialog">
+    <div id="dvCondition1">
+    </div>
+    <div id="dvCondition2">
+    </div>
+    <div id="dvCondition3">
+    </div>
+</div>
+@*<script type='text/javascript' src='js/jquery.js'></script>
+<script type='text/javascript' src='js/jquery.simplemodal.js'></script>
+<script type='text/javascript' src='js/basic.js'></script>
+*@

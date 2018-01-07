@@ -1,0 +1,263 @@
+﻿@{
+    ViewBag.Title = "NewAccordian";
+}
+<link href="../../Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+<script src="../../Scripts/jquery-1.7.1.js"></script>
+<script src="../../Scripts/jquery.ui.core.js"></script>
+<script src="../../Scripts/jquery.ui.widget.js"></script>
+<script src="../../Scripts/jquery.ui.accordion.js"></script>
+<style>
+    .ajax
+    {
+        background-color: #EEEEEE;
+        border: 1px solid #DDDDDD;
+        display: block;
+        left: 40%;
+        position: absolute;
+        top: 50%;
+        width: 500px;
+        height: 90px;
+        z-index: 999;
+    }
+    #blur
+    {
+        width: 200%;
+        background-color: black;
+        moz-opacity: 0.5;
+        khtml-opacity: .5;
+        opacity: .5;
+        filter: alpha(opacity=50);
+        z-index: 120;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    
+    #progress
+    {
+        z-index: 200;
+        background-color: White;
+        position: absolute;
+        top: 0pt;
+        left: 0pt;
+        border: solid 1px black;
+        padding: 5px 5px 5px 5px;
+        text-align: center;
+    
+    }
+</style>
+<h1>
+    Toggle Panels</h1>
+@*<div id="divContainer" style="width: 500px; height: 220px; border: Solid 1px Black;">
+</div>*@
+<input type="text" id="txtAddress" />
+<input id="btnFilter" type="button" value="Filter" />
+<div id="notaccordion">
+    <h3 id="headerPA">
+        <a href="#">PA</a></h3>
+    <div id="dvPA">
+        <p>
+            Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque.
+            Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a
+            nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada.
+            Vestibulum a velit eu ante scelerisque vulputate.
+        </p>
+    </div>
+    <h3 id="headerA">
+        <a href="#">A</a></h3>
+    <div id="dvA">
+        <p>
+            Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus. Vivamus
+            hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit, faucibus interdum
+            tellus libero ac justo. Vivamus non quam. In suscipit faucibus urna.
+        </p>
+    </div>
+    <h3 id="headerSA">
+        <a href="#">SA</a></h3>
+    <div id="dvSA">
+        <p>
+            Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis. Phasellus
+            pellentesque purus in massa. Aenean in pede. Phasellus ac libero ac tellus pellentesque
+            semper. Sed ac felis. Sed commodo, magna quis lacinia ornare, quam ante aliquam
+            nisi, eu iaculis leo purus venenatis dui.
+        </p>
+        <ul>
+            <li>List item one</li>
+            <li>List item two</li>
+            <li>List item three</li>
+        </ul>
+    </div>
+    <h3>
+        <a href="#">Section 4</a></h3>
+    <div>
+        <p>
+            Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada
+            fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et
+            ultrices posuere cubilia Curae; Aenean lacinia mauris vel est.
+        </p>
+        <p>
+            Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class
+            aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+        </p>
+    </div>
+</div>
+<div id="dvAjaxImg" class="ajax" style="display: none">
+    <img src="../../images/loading.gif" />
+</div>
+<div id="dvAjax" style="display: none">
+    <div id="blur">
+        &nbsp;</div>
+    <div id="progress">
+        <img src="../../images/loading.gif" />
+    </div>
+</div>
+<script type="text/javascript">
+    $.fn.togglepanels = function () {
+        return this.each(function () {
+            $(this).addClass("ui-accordion ui-accordion-icons ui-widget ui-helper-reset")
+  .find("h3")
+    .addClass("ui-accordion-header ui-helper-reset ui-state-default ui-corner-top ui-corner-bottom")
+    .hover(function () { $(this).toggleClass("ui-state-hover"); })
+    .prepend('<span class="ui-icon ui-icon-triangle-1-e"></span>')
+    .click(function () {
+        $(this)
+        .toggleClass("ui-accordion-header-active ui-state-active ui-state-default ui-corner-bottom")
+        .find("> .ui-icon").toggleClass("ui-icon-triangle-1-e ui-icon-triangle-1-s").end()
+        .next().slideToggle();
+        return false;
+    })
+    .next()
+      .addClass("ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom")
+      .hide();
+        });
+    };
+
+    $("#notaccordion").togglepanels();
+
+
+
+
+
+    // $("#tbUsername").blur(function(event) {
+    $("#btnFilter").click(function () {
+
+        // $("#dvAjaxImg").css('display', 'block');
+        $.ajax({
+            type: "POST",
+            url: "Home/FilterData",
+            data: "{ 'address':'" + $('#txtAddress').val() + "'}",
+            beforeSend: function () {
+                // Show your spinner
+                $("#dvAjax").css('display', 'block');
+                loadingImg();
+            },
+            complete: function () {
+                // Hide your spinner
+                $("#dvAjax").css('display', 'none');
+
+            },
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                // document.getElementById("dvAjaxImg").style.dispaly = "none";
+                //$("#dvAjaxImg").css('display', 'none');
+                var GetValue = new Array();
+                // alert(response.toString());
+                GetValue = response.split("~")
+                // alert(GetValue[0]);
+                $('#dvPA').html("");
+                $('#dvPA').html(GetValue[0]);
+                // $('#dvPA').slideToggle('slow');
+                // $('#dvPA').next(".test").slideToggle("slow");
+                $("#dvPA").toggle();
+                $('#headerPA').find(".ui-icon").toggleClass("ui-icon-triangle-1-e ui-icon-triangle-1-s").end().next();
+
+
+
+                //                $('#dvPA')
+                //        .toggleClass("ui-accordion-header-active ui-state-active ui-state-default ui-corner-bottom")
+                //        .find("> .ui-icon").toggleClass("ui-icon-triangle-1-e ui-icon-triangle-1-s").end()
+                //        .next().slideToggle();
+                //                $(this)
+                //        .toggleClass("ui-accordion-header ui-helper-reset ui-corner-top ui-accordion-header-active ui-state-active")
+                //        .find("> .ui-icon").toggleClass("ui-icon-triangle-1-e ui-icon-triangle-1-s").end()
+                //        .next().slideToggle();
+                //                return false;
+
+
+
+
+
+                $('#dvA').html("");
+                $('#dvA').html(GetValue[1]);
+                // $('#dvA').slideDown('slow');
+                $("#dvA").toggle();
+                $('#headerA').find(".ui-icon").toggleClass("ui-icon-triangle-1-e ui-icon-triangle-1-s").end().next();
+
+
+                $('#dvSA').html("");
+                $('#dvSA').html(GetValue[2]);
+                //$('#dvSA').slideDown('slow');
+                $("#dvSA").toggle();
+                $('#headerSA').find(".ui-icon").toggleClass("ui-icon-triangle-1-e ui-icon-triangle-1-s").end().next();
+
+                //alert(GetValue[1]);
+                // alert(GetValue[2]);
+                //renderTable(response);
+            },
+            failure: function (errMsg) {
+                $('#errorMessage').text(errMsg); //errorMessage is id of the div
+            }
+        });
+
+    });
+    function renderTable(result) {
+
+        var dtData = [];
+        var i = 0;
+        $('#dvPA').html("");
+        $.each(result, function () {
+            //alert(i);
+            $('#dvPA').append("employeeId " + result[i].employeeId);
+            $('#dvPA').append(" | employeeName " + result[i].employeeName);
+            $('#dvPA').append(" | address " + result[i].address);
+            $('#dvPA').append(" | age " + result[i].age);
+            $('#dvPA').append("<br/>");
+            i++;
+        });
+        $('#dvPA').slideDown('slow');
+    }
+    function AjaxSucceeded(result) {
+        alert(result)
+        // if (result == true)
+        alert(result[0]);
+        if (result != null) {
+            // $('#valid').html("<img src='images/available.gif' alt='Username available!'>");
+            alert('success');
+        }
+        else {
+            // $('#valid').html("<img src='images/taken.gif' alt='Username taken!'>");
+            alert('Failure');
+        }
+    }
+    function AjaxFailed(result) {
+        alert(result.status + ' ' + result.statusText);
+    }    
+  
+
+</script>
+<script type="text/javascript">
+    function loadingImg() {
+        if (document.getElementById) {
+            var progress = document.getElementById('progress');
+            var blur = document.getElementById('blur');
+            progress.style.width = '300px';
+            progress.style.height = '30px';
+            blur.style.height = document.documentElement.clientHeight;
+            progress.style.top = document.documentElement.clientHeight / 3 - progress.style.height.replace('px', '') / 2 + 'px';
+            progress.style.left = document.body.offsetWidth / 2 - progress.style.width.replace('px', '') / 2 + 'px';
+        }
+    }
+</script>

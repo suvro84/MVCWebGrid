@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://personal-90a702/BookService/BookService.BookService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BookService" />
+  <xs:element name="GetAllBooks">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllBooksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BookService" minOccurs="0" name="GetAllBooksResult" nillable="true" type="q1:ArrayOfBook" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBookByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BookID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBookByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BookService" minOccurs="0" name="GetBookByIDResult" nillable="true" type="q2:ArrayOfBook" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BookService" minOccurs="0" name="request" nillable="true" type="q3:BookRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BookService" minOccurs="0" name="GetDataResult" nillable="true" type="q4:BookResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Filter">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Genre" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FilterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BookService" minOccurs="0" name="FilterResult" nillable="true" type="q5:ArrayOfBook" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

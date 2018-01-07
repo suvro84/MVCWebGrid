@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "OldNewRecord";
+}
+@model IEnumerable<MvcWebGrid.Models.FinalRecord>
+<h2>
+    OldNewRecord</h2>
+<table id="grid" class="display">
+    <thead>
+        <tr>
+            <th>
+                gid
+            </th>
+            <th>
+                oldRecord1
+            </th>
+            <th>
+                newRecord1
+            </th>
+            <th>
+                oldRecord2
+            </th>
+            <th>
+                newRecord2
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a>@item.oldRecord.oldRecord.gid</a>
+                </td>
+                <td>
+                    @if (item.oldRecord.oldRecord.record1 != null)
+                    {                
+                        <span>@item.oldRecord.oldRecord.record1</span>
+                                               
+                    }
+                </td>
+                <td>
+                    @if (item.newRecord != null)
+                    {
+              
+                       <span>@item.newRecord.newRecord.record1</span>                        
+                       
+                    }
+                    else
+                    { 
+                    <span>No New Record</span>
+                    }
+                </td>
+                <td>
+                    @if (item.oldRecord.oldRecord.record2 != null)
+                    {               
+                        <span>@item.oldRecord.oldRecord.record2</span>                                               
+                    }
+                   
+                </td>
+                <td>
+                    @if (item.newRecord != null)
+                    {
+                
+                        <span>@item.newRecord.newRecord.record2</span>
+                        
+                        
+                    }
+                    else
+                    { 
+                    <span>No New Record</span>
+                    }
+                </td>
+            </tr> 
+        }
+    </tbody>
+</table>

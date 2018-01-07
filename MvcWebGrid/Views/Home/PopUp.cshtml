@@ -1,0 +1,175 @@
+﻿@{
+    ViewBag.Title = "PopUp";
+    
+}
+<style>
+    .profile > li
+    {
+        display: table-cell;
+        vertical-align: top;
+    }
+    
+    .profile
+    {
+        display: table;
+    }
+    .tablelike
+    {
+        display: table;
+    }
+    .tablelike li
+    {
+        width: 50%;
+        display: table-cell;
+    }
+</style>
+<h2>
+    PopUp</h2>
+@if (getBooks() != null)
+{
+       
+    <a href="javascript:funOpenPopUp('@getBooks()');">Open</a>
+    <table>
+        <tr>
+            <td>
+                <img width="40" height="40" src="../../images/grid_header.png" alt="johnsmith2" />
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            John Smith
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            24 years
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Chicago
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>  
+@*<ul class="profile">
+        <li class="image">
+            <img width="40" height="40" src="../../images/grid_header.png" alt="johnsmith2" /></li>
+        <li>John Smith</li>
+        <li>24 years</li>
+        <li>Chicago</li>
+    </ul>*@ 
+    <ul class="profile">
+        <li>
+            <img width="100" height="100" src="../../images/grid_header.png" alt="johnsmith2" /></li>
+        <li>
+            <ul>
+                <li>John Smith</li>
+                <li>24 years</li>
+                <li>Chicago</li>
+            </ul>
+        </li>
+    </ul>
+    
+    <ul style="list-style: none outside none;">
+        <li style="float: left; display: block; width: 100px; height: 40px;">Field 1</li>
+        <li style="float: left; display: block; width: 100px; height: 40px;">Field 2</li>
+        <li style="float: left; display: block; width: 100px; height: 40px;">Field 3</li>
+    </ul>
+    <ul class="tablelike">
+        <li>Column 1</li>
+        <li>Column 2</li>
+    </ul>  
+    
+    <table>
+        <tr>
+            <td colspan='2' rowspan='2'>
+                hiii
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+}
+else
+{ <span>Open</span> }
+@functions
+{
+    public string getBooks()
+    {
+
+        List<MvcWebGrid.Models.Book> bookList = new List<MvcWebGrid.Models.Book>
+        {
+            new MvcWebGrid.Models.Book{BookID=1, BookNm="DevCurry.com Developer Tips"},
+            new MvcWebGrid.Models.Book{BookID=2, BookNm=".NET and COM for Newbies"},
+            new MvcWebGrid.Models.Book{BookID=3, BookNm="51 jQuery ASP.NET Recipes"},
+            new MvcWebGrid.Models.Book{BookID=4, BookNm="Motivational Gurus"},
+            new MvcWebGrid.Models.Book{BookID=5, BookNm="Spiritual Gurus"}
+        };
+
+
+        return new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(bookList); ;
+    }
+   
+    }
+
+
+<script type="text/javascript">
+    function funOpenPopUp(result) {
+        //alert(result.item.length);
+        //         alert(result.length);
+        //                for (var i = 0; i < result.length; i++) {
+        //                    alert(result[i]);
+        //                    //alert(result[i]);
+        //                }
+
+        //        var i = 0;
+        //        $.each(result, function () {
+
+        //            $('#displayList').append(" | Recipiename " + result[i]);
+        //            $('#displayList').append(" | Preparationtime " + result[i]);
+
+
+        //            i++;
+        //        });
+
+
+        //var ret = JSON.decode(result);
+        var jsonData = jQuery.parseJSON(result);
+        alert(jsonData);
+        for (var i = 0; i < jsonData.length; i++) {
+            alert(jsonData[i].BookID);
+            alert(jsonData[i].BookNm);
+        }
+
+
+
+
+    }
+
+
+   
+</script>

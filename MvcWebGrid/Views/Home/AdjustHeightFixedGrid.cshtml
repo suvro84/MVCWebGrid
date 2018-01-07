@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "AdjustHeightFixedGrid";
+}
+<h2>
+    AdjustHeightFixedGrid</h2>
+<link href="../../media/css/demo_table.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../media/js/jquery.js"></script>
+<script type="text/javascript" src="../../media/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="../../media/js/FixedColumns.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var oTable = $('#grid').dataTable({
+            "sScrollX": "100%",
+            "sScrollXInner": "150%",
+            "bScrollCollapse": true
+
+
+
+
+
+        });
+        new FixedColumns(oTable, {
+            "iLeftColumns": 2,
+            "iLeftWidth": 350
+        });
+
+        $("table td").each(function (i, o) {
+
+            //alert($(this).text());
+        });
+
+
+        $("#grid tbody tr.class").each(function () {
+            alert($(this).find("td:eq(1)").text());
+            alert($(this).find("td:eq(2)").text());
+        })
+
+    });
+
+
+    //});
+</script>
+<table id="grid" class="display">
+    <thead>
+        <tr>
+            <th>
+                employeeId
+            </th>
+            <th>
+                employeeName
+            </th>
+            <th>
+                address
+            </th>
+            <th>
+                age
+            </th>
+            <th>
+                designation
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="class">
+                <td>@item.employeeId
+                </td>
+                <td>@item.employeeName
+                </td>
+                <td>@item.address
+                </td>
+                <td>@item.age
+                </td>
+                <td>@item.designation
+                </td>
+            </tr> 
+        }
+    </tbody>
+</table>

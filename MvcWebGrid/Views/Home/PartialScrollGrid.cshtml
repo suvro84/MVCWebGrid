@@ -1,0 +1,81 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+@model IEnumerable<Employee>
+<h2>
+    DataTableGrid</h2>
+<link href="../../media/css/demo_table.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../media/js/jquery.js"></script>
+<script type="text/javascript" src="../../media/js/jquery.dataTables.js"></script>
+<script type="text/javascript">
+    //    $(document).ready(function () {
+    //        $('#grid').dataTable({
+    //            //"oLanguage": { "sSearch": "Search the nominees:" },
+    //            "iDisplayLength": 10,
+    //            "aaSorting": [[0, "asc"]]
+    //        });
+    //    });
+    $(document).ready(function () {
+        var oTable = $('#grid').dataTable({
+            "sScrollY": "200px",
+            "sAjaxSource": "ScrollDataTableGrid/Home",
+            "bServerSide": true,
+            "sDom": "frtiS",
+            "oScroller": {
+                "loadingIndicator": true
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $('#grid').dataTable({
+            "sScrollY": "200px",
+            "sAjaxSource": "ScrollDataTableGrid/Home",
+            "sDom": "frtiS",
+            "bDeferRender": true,
+            "fnInitComplete": function () {
+                this.fnSettings().oScroller.fnScrollToRow(1000);
+            }
+        });
+    });
+
+</script>
+<table id="grid" class="display">
+    <thead>
+        <tr>
+            <th>
+                employeeId
+            </th>
+            <th>
+                employeeName
+            </th>
+            <th>
+                address
+            </th>
+            <th>
+                age
+            </th>
+            <th>
+                designation
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.employeeId
+                </td>
+                <td>@item.employeeName
+                </td>
+                <td>@item.address
+                </td>
+                <td>@item.age
+                </td>
+                <td>@item.designation
+                </td>
+            </tr> 
+        }
+    </tbody>
+</table>

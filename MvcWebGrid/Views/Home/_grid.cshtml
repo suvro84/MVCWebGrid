@@ -1,0 +1,133 @@
+﻿<script src="../../Scripts/jquery-1.4.4.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#btnDelete").click(function (event) {
+            // alert($("#data tr").size());
+            if ($(".sel:checked").size() == 0) {
+                alert("Please Select a checkbox");
+                event.preventDefault();
+                return;
+            }
+            if (!confirm("Are you sure ?")) {
+
+                event.preventDefault();
+                return;
+            }
+            $("#dataToBeDeleted").val("");
+            $(".sel:checked").each(function (index) {
+                if ($("#dataToBeDeleted").val() == "") {
+
+                    $("#dataToBeDeleted").val($(this).attr("value"));
+                }
+                else {
+                    $("#dataToBeDeleted").val($("#dataToBeDeleted").val() + "," + $(this).attr("value"));
+                }
+            });          
+            callAjax($("#dataToBeDeleted").val());
+
+        });
+    });
+
+    function callAjax(dataToBeDeleted ) {
+        //alert(dataToBeDeleted);
+       // var jsonSerialized = JSON.stringify(dataToBeDeleted);
+       // alert(jsonSerialized);
+        var URL = "Home/deleteData?dataToBeDeleted=" + dataToBeDeleted;
+        $.ajax({
+            type: "GET",
+            global: false,
+            //            url: tools.AppPath() + "Drafts/GetTree",
+            url: URL,
+            contentType: "application/x-www-form-urlencoded",
+            data: "{ dataToBeDeleted: dataToBeDeleted}",
+            //data: jsonSerialized,
+            dataType: 'json', //dataType: "json",
+           success: function(result) {}
+
+           // error: $.proxy(this, "ListError")
+        });
+   }
+
+//   $(document).ready(function () {
+//       $(".cbclass").live('click', function () {
+//           if ($(this).attr('checked')) {
+//               $(this).parent().parent().children().find(".txtBoxCSS").attr("disabled", "disabled");
+//               $(this).parent().parent().children().find(".ddlCSS").attr("disabled", "disabled");
+
+//               var text = $(this).parent().parent().children().find(".txtBoxCSS").val();
+//               alert(text);
+//           }
+//           else {
+//               $(this).parent().parent().children().find(".txtBoxCSS").removeAttr("disabled");
+//               $(this).parent().parent().children().find(".ddlCSS").removeAttr("disabled");
+
+
+//           }
+
+
+
+//       });
+
+   //   });
+
+
+//   $(document).ready(function () {
+////       $('#showhidetarget').hide();
+
+////       $('a#showhidetrigger').click(function () {
+////           $('#showhidetarget').toggle(400);
+//       //       });
+//       $("#dvShow").css('display', 'none');
+//   });
+//   function fnHideShow() {
+//       alert($("#dvShow"));
+//       // $("#dvShow").css('display', 'none');
+//       document.getElementById("dvShow").style.display = "none";
+//       if ($("#dvShow").css('display', 'none'))
+//       {
+//       }
+//       else{
+//       }
+
+
+   //}
+</script>
+@model IEnumerable<Album>
+@{
+    var grid = new WebGrid(Model, rowsPerPage: 15, ajaxUpdateContainerId: "myGrid");
+    @grid.GetHtml(columns: grid.Columns(
+      grid.Column(header: "Select", format: @<text><input class="sel" name="cb" 
+      type="checkbox" id="@item.AlbumId"  value="@item.AlbumId" /></text>),
+                      grid.Column("AlbumId",
+                                   format: @<span id="spAlbumId">@item.AlbumId</span>),
+                                         grid.Column("Title",
+                                                      format: @<span id="spTitle">@item.Title</span>),
+                                          grid.Column("Artist",
+                                                      format: @<span id="spArtist">@item.Artist</span>)
+                               ));
+}
+<input type="submit" id="btnDelete" name="btnDelete" value="Delete" />
+<input id="dataToBeDeleted" name="dataToBeDeleted" type="hidden" value="" />
+
+@*<div id="dvShow" onclick="fnHideShow();" >Hide</div>*@
+
+@*<script type="text/javascript">
+
+    $(document).ready(function () {
+
+       // $("#dvShow").hide();
+        $('#dvShow').click(function () {
+            //$(".dvShow").slideToggle();
+            if ($("#dvShow").hide()) {
+                //                $("#dvShow").show();
+                $("#dvShow").css('display', 'block');
+            }
+            else {
+                $("#dvShow").hide();
+            }
+
+        });
+
+    });
+ 
+</script>*@

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MvcWebGrid.Models.Cars>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Download File", "Download")
+</p>
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Manufacturer
+        </th>
+        <th>
+            Type
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.Name
+        </td>
+        <td>
+            @item.Manufacturer
+        </td>
+        <td>
+            @item.Type
+        </td>
+    </tr>
+}
+
+</table>
+

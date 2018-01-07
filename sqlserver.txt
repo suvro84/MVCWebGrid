@@ -1,0 +1,11 @@
+PERSONAL-90A702
+
+DATABASENAME = PERSONAL-90A702
+C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727>aspnet_regsql.exe -ssadd -sstype c -d DATABASENAME -E
+
+C:\Program Files\Microsoft Visual Studio 9\VC>
+aspnet_regsql.exe -ssadd -sstype p -S PERSONAL-90A702 -E
+
+
+
+asp.net sql server mode session state management sample code

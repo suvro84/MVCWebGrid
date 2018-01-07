@@ -1,0 +1,382 @@
+﻿@model IEnumerable<Employee>
+@{
+    ViewBag.Title = "RadipButton";
+    var rbValues = ViewBag.RadioButtonValues;
+}
+<h2>
+    RadipButton</h2>
+<div class="editor-field">
+    @foreach (MvcWebGrid.Models.Book val in rbValues)
+    {
+       
+        @Html.RadioButton("rb", val.BookNm, new { id = val.BookID, Checked = "checked" })@val.BookNm
+        <br />
+    }
+</div>
+<link href="../../media/css/demo_table.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../media/js/jquery.js"></script>
+<script type="text/javascript" src="../../media/js/jquery.dataTables.js"></script>
+<script src="../../Scripts/jquery.json-2.2.min.js" type="text/javascript"></script>
+<style type="text/css">
+    .hoverRowColor
+    {
+        background-color: #C4E9F2;
+    }
+    
+    .selectedRowColor
+    {
+        background-color: #1180EE;
+    }
+</style>
+<script type="text/javascript">
+    var oTable;
+    $(document).ready(function () {
+
+        $("#dvPopUp").dialog({
+            modal: true,
+            autoOpen: false,
+            height: 100,
+            Width: 200
+        });
+
+
+
+
+        /* Init the table */
+        // oTable = $('#grid').dataTable();
+
+
+        oTable = $('#grid').dataTable({
+            //"oLanguage": { "sSearch": "Search the nominees:" },
+            "iDisplayLength": 10,
+            "aaSorting": [[0, "asc"]]
+        });
+
+
+        $("#grid tbody tr").click(function (e) {
+            if ($(this).hasClass('row_selected')) {
+                $(this).removeClass('row_selected');
+            }
+            else {
+                oTable.$('tr.row_selected').removeClass('row_selected');
+                $(this).addClass('row_selected');
+            }
+        });
+
+        $("#grid tbody tr").each(function () {
+            $(this).mouseover(function () {
+                $(this).addClass("row_selected");
+            }).mouseout(function () {
+                $(this).removeClass("row_selected");
+            });
+        });
+
+    });
+    /* Get the rows which are currently selected */
+    function fnGetSelected(oTableLocal) {
+        return oTableLocal.$('tr.row_selected');
+    }
+
+    //    $(function () {
+    //        $(".sel").live('click', function () {
+    //            $("#dataToBeUpdated").val("");
+    //            if ($(this).attr('checked')) {
+    //                if ($("#dataToBeUpdated").val() == "") {
+
+    //                    $("#dataToBeUpdated").val($(this).attr("value"));
+    //                }
+    //                else {
+    //                    $("#dataToBeUpdated").val($("#dataToBeUpdated").val() + "," + $(this).attr("value"));
+    //                }
+    //            }
+    //            else {
+
+
+    //            }
+
+    //        });
+
+    //    });
+
+    $(function () {
+        $('.btnTest').click(function () {
+
+
+            // alert($(this).closest('tr').find('td:eq(1)').text());
+            // alert($(this).closest('tr').find('td:eq(2)').text());
+            // alert($(this).closest('tr').find('td:eq(3)').text());
+            //            alert($row.find('td:eq(0) input').val());
+            //            alert($row.find('td:eq(1)').html());
+            //            alert($row.find('td:eq(2)').html());
+
+        });
+    });
+
+
+
+
+    $(function () {
+        $("#btnUpdate").click(function (event) {
+            // alert($("#data tr").size());
+            if ($(".sel:checked").size() == 0) {
+                alert("Please Select a checkbox");
+                event.preventDefault();
+                return;
+            }
+            if (!confirm("Are you sure ?")) {
+
+                event.preventDefault();
+                return;
+            }
+            var updatedObjects = new Array();
+            alert($("#dataToBeUpdated").val());
+            $(".sel:checked").each(function (index) {
+
+                //alert($('input:radio[name=' + $(this).attr("value") + ']:checked').val());
+                //                if ($("#radioButtonVal").val() == "") {
+
+                //                    $("#radioButtonVal").val($('input:radio[name="' + $(this).attr("value") + '"]:checked').val());
+                //                }
+                //                else {
+                //                    $("#radioButtonVal").val($("#radioButtonVal").val() + "," + $('input:radio[name="' + $(this).attr("value") + '"]:checked').val());
+                //                }
+
+//                var updObject = new Object();
+//                updObject.employeeId = $(this).parent().parent().children().find(".cssemployeeId").val();
+//                updObject.employeeName = $(this).parent().parent().children().find(".cssemployeeName").val();
+//                updObject.address = $(this).parent().parent().children().find(".cssaddress").val();
+//                updatedObjects.push(updObject);
+
+
+
+
+
+
+                var GetValue = new Array();
+                GetValue = $("#dataToBeUpdated").val().split("~");
+
+                for (var i = 0; i < GetValue.length; i++) {
+                    alert(GetValue[i]);
+                    var $row = $('#Row' + GetValue[i].toString());
+                    // alert($row);
+                    var $currentrow = $(this).parents($row);
+
+
+
+                    $currentrow.find('td:eq(1)').css('color', 'red');
+                    $currentrow.find('td:eq(2)').css('color', 'red');
+                    $currentrow.find('td:eq(3)').css('color', 'red');
+                    $currentrow.find('td:eq(4)').css('color', 'red');
+                    $currentrow.find('td:eq(5)').css('color', 'red');
+
+                }
+
+
+                //                var $row = $(this).parents('tr');
+                //                //alert($row.find('td:eq(0) input').val());
+                //                alert($row.find('td:eq(1)').html());
+                //                alert($row.find('td:eq(2)').html());
+                //                $row.find('td:eq(1)').css('color', 'red');
+                //                $row.find('td:eq(2)').css('color', 'red');
+                //                $row.find('td:eq(3)').css('color', 'red');
+                //                $row.find('td:eq(4)').css('color', 'red');
+                //                $row.find('td:eq(5)').css('color', 'red');
+            });
+            //alert($("#radioButtonVal").val());
+
+            //callAjax($("#dataToBeUpdated").val());
+            callAjaxjson($.toJSON(updatedObjects));
+        });
+    });
+
+    function callAjax(dataToBeUpdated) {
+        //alert(dataToBeUpdated);
+        // var jsonSerialized = JSON.stringify(dataToBeUpdated);
+        // alert(jsonSerialized);
+        var URL = "Home/deleteData?dataToBeUpdated=" + dataToBeUpdated;
+        $.ajax({
+            type: "GET",
+            global: false,
+            //            url: tools.AppPath() + "Drafts/GetTree",
+            url: URL,
+            contentType: "application/x-www-form-urlencoded",
+            data: "{ dataToBeUpdated: dataToBeUpdated}",
+            //data: jsonSerialized,
+            dataType: 'json', //dataType: "json",
+            success: function (result) { }
+
+            // error: $.proxy(this, "ListError")
+        });
+    }
+    function callAjaxjson(updatedObjects) {
+        //alert(dataToBeUpdated);
+        // var jsonSerialized = JSON.stringify(dataToBeUpdated);
+        // alert(jsonSerialized);
+        var URL = "Home/PassJsonData";
+        $.ajax({
+            type: "GET",
+            global: false,
+            //            url: tools.AppPath() + "Drafts/GetTree",
+            url: URL,
+            contentType: "application/x-www-form-urlencoded",
+            data: "{ updatedObjects:'"+ updatedObjects+"'}",
+            //data: jsonSerialized,
+            dataType: 'json', //dataType: "json",
+            success: function (result) { }
+
+            // error: $.proxy(this, "ListError")
+        });
+    }
+    //   $(document).ready(function () {
+    //       $(".cbclass").live('click', function () {
+    //           if ($(this).attr('checked')) {
+    //               $(this).parent().parent().children().find(".txtBoxCSS").attr("disabled", "disabled");
+    //               $(this).parent().parent().children().find(".ddlCSS").attr("disabled", "disabled");
+
+    //               var text = $(this).parent().parent().children().find(".txtBoxCSS").val();
+    //               alert(text);
+    //           }
+    //           else {
+    //               $(this).parent().parent().children().find(".txtBoxCSS").removeAttr("disabled");
+    //               $(this).parent().parent().children().find(".ddlCSS").removeAttr("disabled");
+
+
+    //           }
+
+
+
+    //       });
+
+    //   });
+
+
+    //   $(document).ready(function () {
+    ////       $('#showhidetarget').hide();
+
+    ////       $('a#showhidetrigger').click(function () {
+    ////           $('#showhidetarget').toggle(400);
+    //       //       });
+    //       $("#dvShow").css('display', 'none');
+    //   });
+    //   function fnHideShow() {
+    //       alert($("#dvShow"));
+    //       // $("#dvShow").css('display', 'none');
+    //       document.getElementById("dvShow").style.display = "none";
+    //       if ($("#dvShow").css('display', 'none'))
+    //       {
+    //       }
+    //       else{
+    //       }
+
+
+    //}
+    $(function () {
+        $('#btnOpen').click(function () {
+            alert('hi');
+            //$("#dialog").dialog("open", { modal: true, height: 10, autoopen: false, resizable: false });
+            $("#dvPopUp").dialog();
+
+
+
+
+        });
+    });
+</script>
+<table id="grid" class="display">
+    <thead>
+        <tr>
+            <th>
+            </th>
+            <th>
+                employeeId
+            </th>
+            <th>
+                employeeName
+            </th>
+            <th>
+                address
+            </th>
+            <th>
+                age
+            </th>
+            <th>
+                designation
+            </th>
+            <th>
+                radio
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="btnTest" id="Row@{@item.employeeId}" >
+                <td>
+                    @*    @Html.CheckBox("cb", new { @id = item.employeeId, @value = @item.employeeId, @class = "sel" })<br />*@
+                    <input type="checkbox" id="@item.employeeId" name="cb" value="@item.employeeId" class="sel" />
+                </td>
+                <td class="cssemployeeId">@item.employeeId
+                </td>
+                <td>
+                    <span class="cssemployeeName">@item.employeeName</span>
+                </td>
+                <td>
+                    <span class="cssaddress">@item.address</span>
+                </td>
+                <td>@item.age
+                </td>
+                <td>@item.designation
+                </td>
+                <td>
+                    @if (item.designation == "PA")
+                    {
+                  
+                        <input type="radio" checked="checked" name="@item.employeeId" /><span>PA</span>
+                   
+                    }
+                    else
+                    {
+                   
+                        <input type="radio"  name="@item.employeeId" /><span>PA</span>
+                    
+                    }
+                    @if (item.designation == "A")
+                    {
+                  
+                        <input type="radio" checked="checked" name="@item.employeeId" /><span>A</span>
+                   
+                    }
+                    else
+                    {
+                   
+                        <input type="radio"  name="@item.employeeId" /><span>A</span>
+                   
+                    }
+                    @if (item.designation == "SA")
+                    {
+                   
+                        <input type="radio" checked="checked" name="@item.employeeId" /><span>SA</span>
+                  
+                    }
+                    else
+                    {
+                   
+                     
+                        <input type="radio"  name="@item.employeeId" /><span>SA</span>
+                   
+                    }
+                </td>
+            </tr> 
+        }
+    </tbody>
+</table>
+<div id="dvPopUp" title="Basic dialog" style="display: none;">
+    <p>
+        This is the default dialog which is useful for displaying information. The dialog
+        window can be moved, resized and closed with the 'x' icon.</p>
+</div>
+<input type="button" id="btnEdit" name="btnEdit" value="Edit" />
+<input type="button" id="btnUpdate" name="btnUpdate" value="Update" />
+<input type="button" id="btnOpen" value="Open" />
+<input id="dataToBeUpdated" name="dataToBeUpdated" type="hidden" value="" />
+<input id="radioButtonVal" name="radioButtonVal" type="hidden" value="" />

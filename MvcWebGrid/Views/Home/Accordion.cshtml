@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Employee>
+@{
+    ViewBag.Title = "Accordion";
+    var cookieval = System.Configuration.ConfigurationManager.AppSettings["cookiesval"].ToString();
+}
+<h2>
+    Accordion</h2>
+<link href="../../Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+<script src="../../Scripts/jquery-1.7.1.js"></script>
+<script src="../../Scripts/jquery.ui.core.js"></script>
+<script src="../../Scripts/jquery.ui.widget.js"></script>
+<script src="../../Scripts/jquery.ui.accordion.js"></script>
+<script>
+    $(function () {
+        $("#accordion").accordion({
+            collapsible: true
+        });
+    });
+
+
+    function onddlChange(obj) {
+        alert(obj.value);
+        // document.getElementById("ddlFontType").options[document.getElementById("ddlFontSize").selectedIndex].text = update[1].toString();
+        alert(obj.options[obj.selectedIndex].text);
+        //alert(document.getElementById(obj).value);
+
+    }
+</script>
+@using (Html.BeginForm())
+{
+    <div id="accordion">
+        <h3>
+            <a href="#">First header</a></h3>
+        <div>
+            First content<br />
+            @Html.CheckBox("cb", new { @id = "cb1", @value = "cbdata1", @class = "csscb" })<br />
+            @Html.TextBox("txtdata1", "1", new { @class = "Autocomplete", maxlength = 10 })<br />
+            @Html.DropDownList("ddlCardType1", new List<SelectListItem> { new SelectListItem { Text = "Please Select", Value = "Please Select" }, new SelectListItem { Text = "Base Card", Value = "base_card" }, new SelectListItem { Text = "Top Card", Value = "topup_card" } })<br />
+            Dynamic DDL: @Html.DropDownList("ddlTitle", new SelectList((System.Collections.IEnumerable)ViewData["empList"], "employeeId", "employeeName"), new { @class = "ddlCSS", onchange = "onddlChange(ddlTitle)" })
+        </div>
+        <h3>
+            <a href="#">Second header</a></h3>
+        <div>
+            Second content<br />
+            @Html.CheckBox("cb", new { @id = "cb2", @value = "cbdata2", @class = "csscb" })<br />
+            @Html.TextBox("txtdata2", "2", new { @class = "Autocomplete", maxlength = 10 })<br />
+            @Html.DropDownList("ddlCardType2", new List<SelectListItem> { new SelectListItem { Text = "Base Card", Value = "base_card" }, new SelectListItem { Text = "Top Card", Value = "topup_card" } })
+        </div>
+    </div>
+    
+ 
+       if (Convert.ToBoolean(ViewData["Edit"]) == true)
+       { 
+    <input type="submit" id="btnEdit" name="btnEdit" value="Add" />
+       }
+       if (Convert.ToBoolean(ViewData["Del"]) == true)
+       { 
+    <input type="submit" id="btnDel" name="btnDel" value="Del" />
+       }
+       if (Convert.ToBoolean(ViewData["View"]) == true)
+       { 
+    <input type="submit" id="btnView" name="btnView" value="View" />
+       }
+}
+<script type="text/javascript">
+    function ReadConfigurationSettings() {
+       
+        alert(@cookieval);
+    }
+
+    $(document).ready(function () {
+        ReadConfigurationSettings();
+    });
+</script>

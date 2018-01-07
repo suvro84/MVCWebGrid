@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "JqueryValidation";
+}
+<h2>
+    JqueryValidation</h2>
+<script src="../../Scripts/jquery-1.4.4.js" type="text/javascript"></script>
+<script src="../../Scripts/jquery.validate.js" type="text/javascript"></script>
+@*<script type="text/javascript">
+    $(function () {
+        $("#userform").validate({
+            rules: {
+                FirstName: { required: true, maxlength: 64 },
+                LastName: { required: true, maxlength: 64 },
+                Email: { maxlength: 32, email: true }
+            }
+        });
+    });
+</script>*@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#userform").validate({
+            rules: {
+                FirstName: { minlength: 5, required: true, maxlength: 64 },
+                LastName: { minlength: 5, required: true, maxlength: 64 },
+//                Email: { required: true, maxlength: 32 }
+                  Email: { required: true, Email: true },
+                //                         ,<%=txtURL.UniqueID %>: {required: true}
+            }, messages: {
+                FirstName: { required: "Plaese enter your FirstName", minlength: "FirstName must be atleaet of 5 characters" },
+                LastName: { required: "Plaese enter your LastName", minlength: "LastName must be atleaet of 5 characters" },
+                Email: { required: "Plaese enter your Email Id",Email: "Please provide a valid email" }
+                //                         ,<%=txtURL.UniqueID %>:{ required: "Plaese enter Website URL",}                  
+            }
+        });
+    });
+</script>
+<script type="text/javascript">
+
+    jQuery(function () {
+//        jQuery("#zip").validate({
+//            expression: "if (VAL.match(/^[0-9]{5}$//)) return true; else return false;",
+//            message: "invalid zip code"
+//        });
+        jQuery("#Email").validate({
+            expression: "if (VAL.match(/^[^\\W][a-zA-Z0-9\\_\\-\\.]+… return true; else return false;",
+            message: "invalid email"
+        });
+    });    
+</script>
+
+<html>
+<head>
+    <title>jquery validate</title>
+    <!-- javascript will come here -->
+</head>
+<body>
+    <form id="userform" method="post">
+    <div>
+        <label for="FirstName">
+            First name</label></div>
+    <div>
+        <input id="FirstName" name="FirstName" type="text" /></div>
+    <div>
+        <label for="LastName">
+            Last name</label></div>
+    <div>
+        <input id="LastName" name="LastName" type="text" /></div>
+    <div>
+        <label for="Email">
+            Email</label></div>
+    <div>
+        <input id="Email" name="Email" type="text" /></div>
+    <div>
+        <input type="submit" value="Create" /></div>
+    </form>
+</body>
+</html>

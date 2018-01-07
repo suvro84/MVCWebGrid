@@ -1,0 +1,75 @@
+﻿@model Employee
+@{
+    ViewBag.Title = "ModalPopUp";
+}
+@*<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+*@
+<link href="../../style/modalpopcss/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script src="../../style/modalpopcss/jquery-1.js" type="text/javascript"></script>
+<script src="../../style/modalpopcss/jquery-ui.js" type="text/javascript"></script>
+<link href="../../style/modalpopcss/style.css" rel="stylesheet" type="text/css" />
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form1" }))
+{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#dvPopUp").dialog({
+                modal: true,
+                autoOpen: false,
+                height: 100,
+                width: "80%",
+                show: "slide",
+                showopt: { direction: 'up' }
+
+                        , appendTo: "#form1"
+            }).parent().css('z-index', '1000');
+
+        });
+
+
+        $(function () {
+            $('#btnOpen').click(function () {
+                alert('OpenPopUp');
+                $("#dvPopUp").dialog("open", { modal: true, height: 10, autoopen: false, resizable: false });
+                //$("#dvPopUp").dialog();
+
+
+
+
+            });
+        });
+
+
+
+        $(function () {
+            $('#btnEdit').click(function () {
+                alert('Inside Pop Up');
+                var formData = $("#form1").serialize();
+
+                alert(formData);
+
+
+            });
+        });
+
+
+    </script>
+
+
+
+    <h2>
+        ModalPopUp</h2>
+    
+ 
+    
+    <input type="button" id="btnOpen" value="OpenPopUp" />
+    <div id="dvPopUp" title="Basic dialog" >
+        @Html.TextBoxFor(m => m.employeeName, new { id = "txtUserName" })
+        @Html.TextBoxFor(m => m.address, new { id = "txtaddress" })
+        <input type="button" id="btnEdit" value="Edit" />
+    </div>
+}

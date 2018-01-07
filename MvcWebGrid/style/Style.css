@@ -1,0 +1,49 @@
+﻿
+table.tbHeading table td
+{
+    font-size: 12px;
+    word-wrap: break-word;
+    table-layout: fixed;
+}
+
+.FixedHeightContainer
+{
+    overflow: scroll;
+    height: 100px;
+    
+}
+#dvData {
+border:1px solid blue;
+}
+
+
+table.clData table tr
+{
+   background-color:Gray;
+    
+}
+table.clData table tr td
+{
+   background-color:Lime;
+    
+}
+table.clData table tr td td
+{
+   background-color:red;
+    
+}
+table.clData table tr td td 
+{
+   background-color:Yellow;
+    
+}
+table.clData table tr td td td
+{
+   background-color:Black;
+    
+}
+table.clData table tr td td td td 
+{
+   background-color:Purple;
+    
+}

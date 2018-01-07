@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MvcWebGrid.Models.Person>
+@{
+    ViewBag.Title = "People";
+    WebGrid grid = new WebGrid(Model, rowsPerPage: 5);
+}
+<h2>People</h2>
+
+@grid.GetHtml(
+    fillEmptyRows: true,
+    alternatingRowStyle: "alternate-row",
+    headerStyle: "grid-header",
+    footerStyle: "grid-footer",
+    mode: WebGridPagerModes.All,
+    firstText: "<< First",
+    previousText: "< Prev",
+    nextText: "Next >",
+    lastText: "Last >>",
+    columns: new [] {
+        
+        
+        
+        grid.Column("Name", canSort: false),
+        grid.Column("Surname"),
+        grid.Column("EMail", 
+                     format: @<a href="mailto:@item.Email">@item.Email</a>
+        ),
+        grid.Column("BirthDate", 
+                    header: "Birth date",
+                    format: p=>p.BirthDate.ToShortDateString()
+        ),
+        //grid.Column("Children", 
+        //            header: "Children",
+        //            style: "right"
+        //),
+        grid.Column("", 
+                    header: "Actions",
+                    format: @<text>
+                                @Html.ActionLink("Edit",   "Edit",   new { id=item.PersonId} )
+                                |
+                                @Html.ActionLink("Delete", "Delete", new { id=item.PersonId} )
+                            </text>
+        )
+})

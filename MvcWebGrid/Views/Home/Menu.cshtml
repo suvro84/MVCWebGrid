@@ -1,0 +1,59 @@
+﻿@using MvcWebGrid.BookService
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+@model IEnumerable<MvcWebGrid.Models.Menu>
+<script src="../../menu/c_config.js" type="text/javascript"></script>
+<script src="../../menu/c_smartmenus.js" type="text/javascript"></script>
+<ul class="MM" id="Menu1">
+    @foreach (var item in Model)
+    {
+
+        if (item.parentId == 0)
+        {
+        <li><a href="@item.menuURL">@item.menuName </a>
+            @if (!ViewData["rootMenuIds"].ToString().Contains(Convert.ToString(item.menuId))){
+            
+                <ul>
+                    @generatechild(Convert.ToInt32(item.menuId), Model)
+                </ul>
+                }
+        </li>
+                     
+        }
+
+    }
+</ul>
+@helper     generatechild(int pid, IEnumerable<MvcWebGrid.Models.Menu> dtmenu)
+    {
+        
+        var drmenu = dtmenu.Where(m => m.parentId == pid);
+        if (drmenu.Count() != 0)
+        {
+
+            foreach (var item in drmenu)
+            {
+    
+    <li><a href="@item.menuURL">@item.menuName </a>
+        @{var drmenu1 = dtmenu.Where(m => m.parentId == item.menuId);}
+        @{
+          if (drmenu1.Count() != 0)
+          { 
+                
+            <ul>
+                @generatechild(Convert.ToInt32(item.menuId), drmenu1)
+            </ul>
+                
+                
+                
+                
+          }
+       
+            
+        }
+    </li>
+    
+            }
+        }
+}

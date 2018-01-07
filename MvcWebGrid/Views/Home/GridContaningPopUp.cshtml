@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "GridContaningPopUp";
+}
+<h2>
+    GridContaningPopUp</h2>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        ///setting modal pop up 
+        $("#dialog-modal").dialog({
+            autoOpen: false,
+            title: "Add Client",
+            width: 410,
+            modal: true
+
+        });
+    });
+    function OpenPopup(id) {
+        var hasdata = false;
+        $.ajax({
+            type: "POST",
+            url: "Home/FilterData",
+            data: "{ 'address':" + id + "}",
+            beforeSend: function () {
+                // Show your spinner
+                $("#dvAjax").css('display', 'block');
+                loadingImg();
+            },
+            complete: function () {
+                // Hide your spinner
+                $("#dvAjax").css('display', 'none');
+
+            },
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                var GetValue = new Array();
+                GetValue = response.split("~")
+                if (GetValue[0] != "") {
+                    $('#dvCondition1').html("");
+                    $('#dvCondition1').html(GetValue[0]);
+                    hasdata = true;
+                }
+                if (GetValue[1] != "") {
+                    $('#dvCondition2').html("");
+                    $('#dvCondition2').html(GetValue[1]);
+                    hasdata = true;
+                }
+                if (GetValue[0] != "") {
+                    $('#dvCondition3').html("");
+                    $('#dvCondition3').html(GetValue[1]);
+                    hasdata = true;
+                }
+                if (hasdata == true) {
+                    $("#dialog-modal").dialog({
+                        height: 140,
+                        modal: true
+                    });
+                }
+            },
+            failure: function (errMsg) {
+                $('#errorMessage').text(errMsg); //errorMessage is id of the div
+            }
+        });
+
+    }
+</script>

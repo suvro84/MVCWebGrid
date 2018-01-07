@@ -1,0 +1,304 @@
+﻿@model IEnumerable<Employee>
+@{
+    ViewBag.Title = "JsonGrid";
+    var rbValues = ViewBag.RadioButtonValues;
+}
+<h2>
+    RadipButton</h2>
+<div class="editor-field">
+    @foreach (MvcWebGrid.Models.Book val in rbValues)
+    {
+       
+        @Html.RadioButton("rb", val.BookNm, new { id = val.BookID, Checked = "checked" })@val.BookNm
+        <br />
+    }
+</div>
+<link href="../../media/css/demo_table.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../media/js/jquery.js"></script>
+<script type="text/javascript" src="../../media/js/jquery.dataTables.js"></script>
+<script src="../../Scripts/jquery.json-2.2.min.js" type="text/javascript"></script>
+<style type="text/css">
+    .hoverRowColor
+    {
+        background-color: #C4E9F2;
+    }
+    
+    .selectedRowColor
+    {
+        background-color: #1180EE;
+    }
+</style>
+<style>
+    .ajax
+    {
+        background-color: #EEEEEE;
+        border: 1px solid #DDDDDD;
+        display: block;
+        left: 40%;
+        position: absolute;
+        top: 50%;
+        width: 500px;
+        height: 90px;
+        z-index: 999;
+    }
+    #blur
+    {
+        width: 200%;
+        background-color: black;
+        moz-opacity: 0.5;
+        khtml-opacity: .5;
+        opacity: .5;
+        filter: alpha(opacity=50);
+        z-index: 120;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    
+    #progress
+    {
+        z-index: 200;
+        background-color: White;
+        position: absolute;
+        top: 0pt;
+        left: 0pt;
+        border: solid 1px black;
+        padding: 5px 5px 5px 5px;
+        text-align: center;
+    
+    }
+</style>
+<script type="text/javascript">
+    var oTable;
+    $(document).ready(function () {
+        /* Init the table */
+        // oTable = $('#grid').dataTable();
+        oTable = $('#grid').dataTable({
+            //"oLanguage": { "sSearch": "Search the nominees:" },
+            "iDisplayLength": 10,
+            "aaSorting": [[0, "asc"]]
+        });
+        $("#grid tbody tr").click(function (e) {
+            if ($(this).hasClass('row_selected')) {
+                $(this).removeClass('row_selected');
+            }
+            else {
+                oTable.$('tr.row_selected').removeClass('row_selected');
+                $(this).addClass('row_selected');
+            }
+        });
+
+        $("#grid tbody tr").each(function () {
+            $(this).mouseover(function () {
+                $(this).addClass("row_selected");
+            }).mouseout(function () {
+                $(this).removeClass("row_selected");
+            });
+        });
+
+    });
+    /* Get the rows which are currently selected */
+    function fnGetSelected(oTableLocal) {
+        return oTableLocal.$('tr.row_selected');
+    }
+    $(function () {
+        $("#btnUpdate").click(function (event) {
+            // alert($("#data tr").size());
+            if ($(".sel:checked").size() == 0) {
+                alert("Please Select a checkbox");
+                event.preventDefault();
+                return;
+            }
+            if (!confirm("Are you sure ?")) {
+                event.preventDefault();
+                return;
+            }
+            var updatedObjects = new Array();
+            $("#dataToBeUpdated").val("");
+            $(".sel:checked").each(function (index) {
+                if ($(this).attr('checked')) {
+                    if ($("#dataToBeUpdated").val() == "") {
+
+                        $("#dataToBeUpdated").val($(this).attr("value"));
+                    }
+                    else {
+                        $("#dataToBeUpdated").val($("#dataToBeUpdated").val() + "," + $(this).attr("value"));
+                    }
+                }
+                //alert($("#dataToBeUpdated").val());
+                var updObject = new Object();
+                //alert($(this).parent().parent().children().find(".cssemployeeId").html());
+                //alert($(this).parent().parent().children().find(".cssemployeeName").html());
+                //alert($(this).parent().parent().children().find(".cssaddress").html());
+                updObject.employeeId = $(this).parent().parent().children().find(".cssemployeeId").html();
+                //alert(updObject.employeeId);
+                updObject.employeeName = $(this).parent().parent().children().find(".cssemployeeName").html();
+                updObject.address = $(this).parent().parent().children().find(".cssaddress").html();
+                updatedObjects.push(updObject);
+                var GetValue = new Array();
+                GetValue = $("#dataToBeUpdated").val().split("~");
+                for (var i = 0; i < GetValue.length; i++) {
+                    // alert(GetValue[i]);
+                    var $row = $('#Row' + GetValue[i].toString());
+                    // alert($row);
+                    var $currentrow = $(this).parents($row);
+                    $currentrow.find('td:eq(1)').css('color', 'red');
+                    $currentrow.find('td:eq(2)').css('color', 'red');
+                    $currentrow.find('td:eq(3)').css('color', 'red');
+                    $currentrow.find('td:eq(4)').css('color', 'red');
+                    $currentrow.find('td:eq(5)').css('color', 'red');
+                }
+
+            });
+            //alert($.toJSON(updatedObjects));
+            callAjaxjson($.toJSON(updatedObjects));
+            //callAjaxjson(updatedObjects);
+        });
+    });
+
+    function callAjaxjson(updatedObjects) {
+        $.ajax({
+            type: "POST",
+            url: "Home/PassJsonData",
+            data: "{ 'updatedObjects':'" + updatedObjects + "'}",
+            beforeSend: function () {
+                // Show your spinner
+                $("#dvAjax").css('display', 'block');
+                loadingImg();
+            },
+            complete: function () {
+                // Hide your spinner
+                $("#dvAjax").css('display', 'none');
+
+            },
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                //alert(response);
+                alert('success');
+            },
+            failure: function (errMsg) {
+                $('#errorMessage').text(errMsg); //errorMessage is id of the div
+            }
+        });
+    }
+
+    function loadingImg() {
+        if (document.getElementById) {
+            var progress = document.getElementById('progress');
+            var blur = document.getElementById('blur');
+            progress.style.width = '300px';
+            progress.style.height = '30px';
+            blur.style.height = document.documentElement.clientHeight;
+            progress.style.top = document.documentElement.clientHeight / 3 - progress.style.height.replace('px', '') / 2 + 'px';
+            progress.style.left = document.body.offsetWidth / 2 - progress.style.width.replace('px', '') / 2 + 'px';
+        }
+    }  
+</script>
+<h2>
+    JsonGrid</h2>
+<table id="grid" class="display">
+    <thead>
+        <tr>
+            <th>
+            </th>
+            <th>
+                employeeId
+            </th>
+            <th>
+                employeeName
+            </th>
+            <th>
+                address
+            </th>
+            <th>
+                age
+            </th>
+            <th>
+                designation
+            </th>
+            <th>
+                radio
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="btnTest" id="Row@{@item.employeeId}" >
+                <td>
+                    <input type="checkbox" id="@item.employeeId" name="cb" value="@item.employeeId" class="sel" />
+                </td>
+                <td>
+                    <span class="cssemployeeId">@item.employeeId</span>
+                </td>
+                <td>
+                    <span class="cssemployeeName">@item.employeeName</span>
+                </td>
+                <td>
+                    <span class="cssaddress">@item.address</span>
+                </td>
+                <td>@item.age
+                </td>
+                <td>@item.designation
+                </td>
+                <td>
+                    @if (item.designation == "PA")
+                    {
+                  
+                        <input type="radio" checked="checked" name="@item.employeeId" /><span>PA</span>
+                   
+                    }
+                    else
+                    {
+                   
+                        <input type="radio"  name="@item.employeeId" /><span>PA</span>
+                    
+                    }
+                    @if (item.designation == "A")
+                    {
+                  
+                        <input type="radio" checked="checked" name="@item.employeeId" /><span>A</span>
+                   
+                    }
+                    else
+                    {
+                   
+                        <input type="radio"  name="@item.employeeId" /><span>A</span>
+                   
+                    }
+                    @if (item.designation == "SA")
+                    {
+                   
+                        <input type="radio" checked="checked" name="@item.employeeId" /><span>SA</span>
+                  
+                    }
+                    else
+                    {
+                   
+                     
+                        <input type="radio"  name="@item.employeeId" /><span>SA</span>
+                   
+                    }
+                </td>
+            </tr> 
+        }
+    </tbody>
+</table>
+
+<div id="dvAjaxImg" class="ajax" style="display: none">
+    <img src="../../images/loading.gif" />
+</div>
+<div id="dvAjax" style="display: none">
+    <div id="blur">
+        &nbsp;</div>
+    <div id="progress">
+        <img src="../../images/loading.gif" />
+    </div>
+</div>
+<input type="button" id="btnUpdate" name="btnUpdate" value="Update" />
+<input type="button" id="btnOpen" value="Open" />
+<input id="dataToBeUpdated" name="dataToBeUpdated" type="hidden" value="" />
+<input id="radioButtonVal" name="radioButtonVal" type="hidden" value="" />

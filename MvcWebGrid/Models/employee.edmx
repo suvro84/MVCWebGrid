@@ -1,0 +1,2369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="employeeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="employeeModelStoreContainer">
+          <EntitySet Name="abbr_subchild" EntityType="employeeModel.Store.abbr_subchild" store:Type="Tables" store:Schema="dbo" store:Name="abbr_subchild">
+            <DefiningQuery>SELECT 
+      [abbr_subchild].[sid] AS [sid], 
+      [abbr_subchild].[abbr] AS [abbr], 
+      [abbr_subchild].[fullname] AS [fullname]
+      FROM [dbo].[abbr_subchild] AS [abbr_subchild]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="admin_login" EntityType="employeeModel.Store.admin_login" store:Type="Tables" store:Schema="dbo" store:Name="admin_login">
+            <DefiningQuery>SELECT 
+      [admin_login].[user_id] AS [user_id], 
+      [admin_login].[user_name] AS [user_name], 
+      [admin_login].[user_password] AS [user_password], 
+      [admin_login].[status] AS [status]
+      FROM [dbo].[admin_login] AS [admin_login]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ADMIN_USER_MASTER" EntityType="employeeModel.Store.ADMIN_USER_MASTER" store:Type="Tables" store:Schema="dbo" store:Name="ADMIN_USER_MASTER">
+            <DefiningQuery>SELECT 
+      [ADMIN_USER_MASTER].[userid] AS [userid], 
+      [ADMIN_USER_MASTER].[LoginId] AS [LoginId], 
+      [ADMIN_USER_MASTER].[PrimaryEmail] AS [PrimaryEmail], 
+      [ADMIN_USER_MASTER].[Password] AS [Password], 
+      [ADMIN_USER_MASTER].[FirstName] AS [FirstName], 
+      [ADMIN_USER_MASTER].[LastName] AS [LastName]
+      FROM [dbo].[ADMIN_USER_MASTER] AS [ADMIN_USER_MASTER]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Customers" EntityType="employeeModel.Store.Customers" store:Type="Tables" store:Schema="dbo" store:Name="Customers">
+            <DefiningQuery>SELECT 
+      [Customers].[CustomerID] AS [CustomerID], 
+      [Customers].[CompanyName] AS [CompanyName], 
+      [Customers].[ContactName] AS [ContactName], 
+      [Customers].[ContactTitle] AS [ContactTitle], 
+      [Customers].[Address] AS [Address], 
+      [Customers].[City] AS [City], 
+      [Customers].[Region] AS [Region], 
+      [Customers].[PostalCode] AS [PostalCode], 
+      [Customers].[Country] AS [Country], 
+      [Customers].[Phone] AS [Phone], 
+      [Customers].[Fax] AS [Fax]
+      FROM [dbo].[Customers] AS [Customers]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="dept" EntityType="employeeModel.Store.dept" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="emp" EntityType="employeeModel.Store.emp" store:Type="Tables" store:Schema="dbo" store:Name="emp">
+            <DefiningQuery>SELECT 
+      [emp].[emp_id] AS [emp_id], 
+      [emp].[fname] AS [fname], 
+      [emp].[lname] AS [lname], 
+      [emp].[adress] AS [adress]
+      FROM [dbo].[emp] AS [emp]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="emp_class" EntityType="employeeModel.Store.emp_class" store:Type="Tables" store:Schema="dbo" store:Name="emp_class">
+            <DefiningQuery>SELECT 
+      [emp_class].[emp_id] AS [emp_id], 
+      [emp_class].[dept] AS [dept]
+      FROM [dbo].[emp_class] AS [emp_class]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="emp1" EntityType="employeeModel.Store.emp1" store:Type="Tables" store:Schema="dbo" store:Name="emp1">
+            <DefiningQuery>SELECT 
+      [emp1].[PKint_Product_Id] AS [PKint_Product_Id], 
+      [emp1].[str_Product_Name] AS [str_Product_Name], 
+      [emp1].[str_Color] AS [str_Color], 
+      [emp1].[str_Quantity] AS [str_Quantity], 
+      [emp1].[str_Size] AS [str_Size], 
+      [emp1].[dec_Price] AS [dec_Price], 
+      [emp1].[int_Discount] AS [int_Discount], 
+      [emp1].[str_Details] AS [str_Details], 
+      [emp1].[str_ImageHome] AS [str_ImageHome], 
+      [emp1].[str_ImageDetail] AS [str_ImageDetail], 
+      [emp1].[chr_Activate_Status] AS [chr_Activate_Status], 
+      [emp1].[bln_Delete_Status] AS [bln_Delete_Status], 
+      [emp1].[str_Page_Name] AS [str_Page_Name], 
+      [emp1].[str_summery_head] AS [str_summery_head], 
+      [emp1].[str_bieuxskin_summery] AS [str_bieuxskin_summery]
+      FROM [dbo].[emp1] AS [emp1]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="emp2" EntityType="employeeModel.Store.emp2" store:Type="Tables" store:Schema="dbo" store:Name="emp2">
+            <DefiningQuery>SELECT 
+      [emp2].[emp_id] AS [emp_id], 
+      [emp2].[package_name] AS [package_name], 
+      [emp2].[package_cost] AS [package_cost], 
+      [emp2].[id1] AS [id1], 
+      [emp2].[checked] AS [checked]
+      FROM [dbo].[emp2] AS [emp2]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="employee" EntityType="employeeModel.Store.employee" store:Type="Tables" store:Schema="dbo" store:Name="employee">
+            <DefiningQuery>SELECT 
+      [employee].[emp_id] AS [emp_id], 
+      [employee].[emp_name] AS [emp_name]
+      FROM [dbo].[employee] AS [employee]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="employee1" EntityType="employeeModel.Store.employee1" store:Type="Tables" store:Schema="dbo" store:Name="employee1">
+            <DefiningQuery>SELECT 
+      [employee1].[emp_id] AS [emp_id], 
+      [employee1].[emp_name] AS [emp_name]
+      FROM [dbo].[employee1] AS [employee1]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="fan" EntityType="employeeModel.Store.fan" store:Type="Tables" store:Schema="dbo" store:Name="fan">
+            <DefiningQuery>SELECT 
+      [fan].[fan_id] AS [fan_id], 
+      [fan].[image_name] AS [image_name], 
+      [fan].[tittle] AS [tittle], 
+      [fan].[description] AS [description], 
+      [fan].[url_name] AS [url_name]
+      FROM [dbo].[fan] AS [fan]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="item" EntityType="employeeModel.Store.item" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="location" EntityType="employeeModel.Store.location" store:Type="Tables" store:Schema="dbo" store:Name="location">
+            <DefiningQuery>SELECT 
+      [location].[id] AS [id], 
+      [location].[address] AS [address], 
+      [location].[city] AS [city], 
+      [location].[country] AS [country]
+      FROM [dbo].[location] AS [location]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="People" EntityType="employeeModel.Store.People" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="performerlist" EntityType="employeeModel.Store.performerlist" store:Type="Tables" store:Schema="dbo" store:Name="performerlist">
+            <DefiningQuery>SELECT 
+      [performerlist].[evtId] AS [evtId], 
+      [performerlist].[tnetworkEventId] AS [tnetworkEventId], 
+      [performerlist].[tnowEventId] AS [tnowEventId], 
+      [performerlist].[stubhubEventId] AS [stubhubEventId], 
+      [performerlist].[evtName] AS [evtName], 
+      [performerlist].[genre] AS [genre], 
+      [performerlist].[genreGrand] AS [genreGrand], 
+      [performerlist].[date] AS [date], 
+      [performerlist].[venue] AS [venue], 
+      [performerlist].[city] AS [city], 
+      [performerlist].[pcatId] AS [pcatId], 
+      [performerlist].[ccatId] AS [ccatId], 
+      [performerlist].[gcatId] AS [gcatId]
+      FROM [dbo].[performerlist] AS [performerlist]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="product" EntityType="employeeModel.Store.product" store:Type="Tables" store:Schema="dbo" store:Name="product">
+            <DefiningQuery>SELECT 
+      [product].[product_id] AS [product_id], 
+      [product].[product_name] AS [product_name], 
+      [product].[cost] AS [cost], 
+      [product].[date] AS [date]
+      FROM [dbo].[product] AS [product]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Products" EntityType="employeeModel.Store.Products" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ranktable" EntityType="employeeModel.Store.ranktable" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="student" EntityType="employeeModel.Store.student" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="employeeModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblAddressMaster" EntityType="employeeModel.Store.tblAddressMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblArticle_Chapter_Relation" EntityType="employeeModel.Store.tblArticle_Chapter_Relation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblArticleMaster" EntityType="employeeModel.Store.tblArticleMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblBillingCountryServer" EntityType="employeeModel.Store.tblBillingCountryServer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblBillingDetailsBothway" EntityType="employeeModel.Store.tblBillingDetailsBothway" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblBillingSateServer" EntityType="employeeModel.Store.tblBillingSateServer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblChapter_Master" EntityType="employeeModel.Store.tblChapter_Master" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblchild" EntityType="employeeModel.Store.tblchild" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblCityMaster" EntityType="employeeModel.Store.tblCityMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblExpert_Master" EntityType="employeeModel.Store.tblExpert_Master" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblgrantchild" EntityType="employeeModel.Store.tblgrantchild" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblItemCategory_Web_Server" EntityType="employeeModel.Store.tblItemCategory_Web_Server" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblLoginDetalisMaster" EntityType="employeeModel.Store.tblLoginDetalisMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblLoginMaster" EntityType="employeeModel.Store.tblLoginMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblOrder_Pg_Details" EntityType="employeeModel.Store.tblOrder_Pg_Details" store:Type="Tables" store:Schema="dbo" store:Name="tblOrder_Pg_Details">
+            <DefiningQuery>SELECT 
+      [tblOrder_Pg_Details].[id] AS [id], 
+      [tblOrder_Pg_Details].[sbillno] AS [sbillno], 
+      [tblOrder_Pg_Details].[pgid] AS [pgid], 
+      [tblOrder_Pg_Details].[poid] AS [poid]
+      FROM [dbo].[tblOrder_Pg_Details] AS [tblOrder_Pg_Details]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblPackage_Master" EntityType="employeeModel.Store.tblPackage_Master" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblparent" EntityType="employeeModel.Store.tblparent" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblPaymentGatewayMaster" EntityType="employeeModel.Store.tblPaymentGatewayMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblPaymentOptionGateway_Relation" EntityType="employeeModel.Store.tblPaymentOptionGateway_Relation" store:Type="Tables" store:Schema="dbo" store:Name="tblPaymentOptionGateway_Relation">
+            <DefiningQuery>SELECT 
+      [tblPaymentOptionGateway_Relation].[poid] AS [poid], 
+      [tblPaymentOptionGateway_Relation].[pgid] AS [pgid], 
+      [tblPaymentOptionGateway_Relation].[Rank] AS [Rank]
+      FROM [dbo].[tblPaymentOptionGateway_Relation] AS [tblPaymentOptionGateway_Relation]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblPaymentOptionMaster" EntityType="employeeModel.Store.tblPaymentOptionMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblPosBothay" EntityType="employeeModel.Store.tblPosBothay" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblRating" EntityType="employeeModel.Store.tblRating" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblregister" EntityType="employeeModel.Store.tblregister" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblsalesDetails_Bothway" EntityType="employeeModel.Store.tblsalesDetails_Bothway" store:Type="Tables" store:Schema="dbo" store:Name="tblsalesDetails_Bothway">
+            <DefiningQuery>SELECT 
+      [tblsalesDetails_Bothway].[SlNo] AS [SlNo], 
+      [tblsalesDetails_Bothway].[SbillBo] AS [SbillBo], 
+      [tblsalesDetails_Bothway].[Product_Id] AS [Product_Id], 
+      [tblsalesDetails_Bothway].[qty] AS [qty], 
+      [tblsalesDetails_Bothway].[price] AS [price]
+      FROM [dbo].[tblsalesDetails_Bothway] AS [tblsalesDetails_Bothway]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblSalesDetailsBothway" EntityType="employeeModel.Store.tblSalesDetailsBothway" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblSalesMasterBothway" EntityType="employeeModel.Store.tblSalesMasterBothway" store:Type="Tables" store:Schema="dbo" store:Name="tblSalesMasterBothway">
+            <DefiningQuery>SELECT 
+      [tblSalesMasterBothway].[sbillno] AS [sbillno], 
+      [tblSalesMasterBothway].[sales_aot] AS [sales_aot], 
+      [tblSalesMasterBothway].[dateofdelivery] AS [dateofdelivery], 
+      [tblSalesMasterBothway].[updatedatetime] AS [updatedatetime], 
+      [tblSalesMasterBothway].[RecordStatus] AS [RecordStatus], 
+      [tblSalesMasterBothway].[sbillstatus] AS [sbillstatus], 
+      [tblSalesMasterBothway].[ipaddress] AS [ipaddress], 
+      [tblSalesMasterBothway].[dateofsales] AS [dateofsales], 
+      [tblSalesMasterBothway].[poid] AS [poid], 
+      [tblSalesMasterBothway].[pgid] AS [pgid]
+      FROM [dbo].[tblSalesMasterBothway] AS [tblSalesMasterBothway]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblServiceMaster" EntityType="employeeModel.Store.tblServiceMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblShippingCityMaster" EntityType="employeeModel.Store.tblShippingCityMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblShippingDetailsBothway" EntityType="employeeModel.Store.tblShippingDetailsBothway" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblShippingStateMaster" EntityType="employeeModel.Store.tblShippingStateMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblSiteChapterMaster" EntityType="employeeModel.Store.tblSiteChapterMaster" store:Type="Tables" store:Schema="dbo" store:Name="tblSiteChapterMaster">
+            <DefiningQuery>SELECT 
+      [tblSiteChapterMaster].[Site_id] AS [Site_id], 
+      [tblSiteChapterMaster].[Parent_Id] AS [Parent_Id], 
+      [tblSiteChapterMaster].[chapter_level] AS [chapter_level], 
+      [tblSiteChapterMaster].[Chapter_Id] AS [Chapter_Id], 
+      [tblSiteChapterMaster].[Chapter_Path] AS [Chapter_Path], 
+      [tblSiteChapterMaster].[metadata] AS [metadata], 
+      [tblSiteChapterMaster].[metadesc] AS [metadesc]
+      FROM [dbo].[tblSiteChapterMaster] AS [tblSiteChapterMaster]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblstate" EntityType="employeeModel.Store.tblstate" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblSubServiceMaster" EntityType="employeeModel.Store.tblSubServiceMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblUserMaster" EntityType="employeeModel.Store.tblUserMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="testProduct" EntityType="employeeModel.Store.testProduct" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="upload_file" EntityType="employeeModel.Store.upload_file" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Videos" EntityType="employeeModel.Store.Videos" store:Type="Tables" store:Schema="dbo" store:Name="Videos">
+            <DefiningQuery>SELECT 
+      [Videos].[ID] AS [ID], 
+      [Videos].[Video] AS [Video], 
+      [Videos].[Video_Name] AS [Video_Name], 
+      [Videos].[Video_Size] AS [Video_Size]
+      FROM [dbo].[Videos] AS [Videos]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'employee.dbo.abbr_subchild' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="abbr_subchild">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="abbr" Type="varchar" MaxLength="50" />
+          <Property Name="fullname" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'employee.dbo.admin_login' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="admin_login">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="varchar" MaxLength="200" />
+          <Property Name="user_password" Type="varchar" MaxLength="200" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'employee.dbo.ADMIN_USER_MASTER' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="ADMIN_USER_MASTER">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LoginId" Type="varchar" MaxLength="50" />
+          <Property Name="PrimaryEmail" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'employee.dbo.Customers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="CompanyName" />
+          </Key>
+          <Property Name="CustomerID" Type="nchar" Nullable="false" MaxLength="5" />
+          <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="30" />
+          <Property Name="ContactTitle" Type="nvarchar" MaxLength="30" />
+          <Property Name="Address" Type="nvarchar" MaxLength="60" />
+          <Property Name="City" Type="nvarchar" MaxLength="15" />
+          <Property Name="Region" Type="nvarchar" MaxLength="15" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Country" Type="nvarchar" MaxLength="15" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="24" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="24" />
+        </EntityType>
+        <EntityType Name="dept">
+          <Key>
+            <PropertyRef Name="dept_id" />
+          </Key>
+          <Property Name="dept_id" Type="int" Nullable="false" />
+          <Property Name="dept_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'employee.dbo.emp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="emp">
+          <Key>
+            <PropertyRef Name="emp_id" />
+            <PropertyRef Name="fname" />
+            <PropertyRef Name="lname" />
+            <PropertyRef Name="adress" />
+          </Key>
+          <Property Name="emp_id" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="fname" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="lname" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="adress" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'employee.dbo.emp_class' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="emp_class">
+          <Key>
+            <PropertyRef Name="emp_id" />
+            <PropertyRef Name="dept" />
+          </Key>
+          <Property Name="emp_id" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="dept" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'employee.dbo.emp1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="emp1">
+          <Key>
+            <PropertyRef Name="PKint_Product_Id" />
+          </Key>
+          <Property Name="PKint_Product_Id" Type="int" Nullable="false" />
+          <Property Name="str_Product_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="str_Color" Type="nvarchar" MaxLength="50" />
+          <Property Name="str_Quantity" Type="nvarchar" MaxLength="50" />
+          <Property Name="str_Size" Type="nvarchar" MaxLength="50" />
+          <Property Name="dec_Price" Type="decimal" />
+          <Property Name="int_Discount" Type="int" />
+          <Property Name="str_Details" Type="nvarchar" MaxLength="1000" />
+          <Property Name="str_ImageHome" Type="nvarchar" MaxLength="50" />
+          <Property Name="str_ImageDetail" Type="nvarchar" MaxLength="50" />
+          <Property Name="chr_Activate_Status" Type="char" MaxLength="1" />
+          <Property Name="bln_Delete_Status" Type="bit" />
+          <Property Name="str_Page_Name" Type="varchar" MaxLength="50" />
+          <Property Name="str_summery_head" Type="varchar" MaxLength="100" />
+          <Property Name="str_bieuxskin_summery" Type="varchar" MaxLength="6500" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'employee.dbo.emp2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="emp2">
+          <Key>
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Name="emp_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="package_name" Type="varchar" MaxLength="50" />
+          <Property Name="package_cost" Type="decimal" />
+          <Property Name="id1" Type="int" />
+          <Property Name="checked" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'employee.dbo.employee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Name="emp_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="emp_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'employee.dbo.employee1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="employee1">
+          <Key>
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Name="emp_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="emp_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'employee.dbo.fan' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="fan">
+          <Key>
+            <PropertyRef Name="fan_id" />
+          </Key>
+          <Property Name="fan_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="image_name" Type="varchar" MaxLength="50" />
+          <Property Name="tittle" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="varchar" MaxLength="50" />
+          <Property Name="url_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="item">
+          <Key>
+            <PropertyRef Name="item_id" />
+          </Key>
+          <Property Name="item_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pid" Type="varchar" MaxLength="50" />
+          <Property Name="cid" Type="int" />
+          <Property Name="item_name" Type="varchar" MaxLength="50" />
+          <Property Name="image_name" Type="varchar(max)" />
+          <Property Name="item_cost" Type="float" />
+          <Property Name="item_description" Type="varchar(max)" />
+          <Property Name="qty" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'employee.dbo.location' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="location">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="50" />
+          <Property Name="city" Type="varchar" MaxLength="50" />
+          <Property Name="country" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="People">
+          <Key>
+            <PropertyRef Name="PersonId" />
+          </Key>
+          <Property Name="PersonId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="BirthDate" Type="datetime" />
+          <Property Name="Children" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'employee.dbo.performerlist' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="performerlist">
+          <Key>
+            <PropertyRef Name="evtId" />
+          </Key>
+          <Property Name="evtId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="tnetworkEventId" Type="int" />
+          <Property Name="tnowEventId" Type="char" MaxLength="10" />
+          <Property Name="stubhubEventId" Type="int" />
+          <Property Name="evtName" Type="int" />
+          <Property Name="genre" Type="int" />
+          <Property Name="genreGrand" Type="char" MaxLength="10" />
+          <Property Name="date" Type="char" MaxLength="10" />
+          <Property Name="venue" Type="char" MaxLength="10" />
+          <Property Name="city" Type="char" MaxLength="10" />
+          <Property Name="pcatId" Type="char" MaxLength="10" />
+          <Property Name="ccatId" Type="char" MaxLength="10" />
+          <Property Name="gcatId" Type="char" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'employee.dbo.product' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="product_name" Type="varchar" MaxLength="50" />
+          <Property Name="cost" Type="varchar" MaxLength="50" />
+          <Property Name="date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="SupplierID" Type="int" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="QuantityPerUnit" Type="nvarchar" MaxLength="20" />
+          <Property Name="UnitPrice" Type="money" />
+          <Property Name="UnitsInStock" Type="smallint" />
+          <Property Name="UnitsOnOrder" Type="smallint" />
+          <Property Name="ReorderLevel" Type="smallint" />
+          <Property Name="Discontinued" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ranktable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="col1" Type="int" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="lid" />
+          </Key>
+          <Property Name="lid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="fname" Type="varchar" MaxLength="50" />
+          <Property Name="lname" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tblAddressMaster">
+          <Key>
+            <PropertyRef Name="address_id" />
+          </Key>
+          <Property Name="address_id" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="varchar" MaxLength="250" />
+          <Property Name="City" Type="nchar" MaxLength="10" />
+          <Property Name="PIN" Type="varchar" MaxLength="50" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="address1" Type="varchar" MaxLength="500" />
+          <Property Name="address2" Type="varchar" MaxLength="500" />
+          <Property Name="state_id" Type="numeric" />
+        </EntityType>
+        <EntityType Name="tblArticle_Chapter_Relation">
+          <Key>
+            <PropertyRef Name="Record_Id" />
+          </Key>
+          <Property Name="Record_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Article_Id" Type="int" Nullable="false" />
+          <Property Name="Chapter_Id" Type="int" Nullable="false" />
+          <Property Name="RecordStatus" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblArticleMaster">
+          <Key>
+            <PropertyRef Name="Article_Id" />
+          </Key>
+          <Property Name="Article_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Article_Name" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Article_Matter" Type="varchar(max)" Nullable="false" />
+          <Property Name="Article_Group_Id" Type="int" Nullable="false" />
+          <Property Name="Article_Record_Status" Type="tinyint" Nullable="false" />
+          <Property Name="Article_UpdateDateTime" Type="datetime" Nullable="false" />
+          <Property Name="Article_Path" Type="varchar(max)" Nullable="false" />
+          <Property Name="Article_CreateDateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblBillingCountryServer">
+          <Key>
+            <PropertyRef Name="countryId" />
+          </Key>
+          <Property Name="countryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="tblBillingDetailsBothway">
+          <Key>
+            <PropertyRef Name="recid" />
+          </Key>
+          <Property Name="recid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="sbillno" Type="varchar" MaxLength="250" />
+          <Property Name="billFName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="billLName" Type="varchar" MaxLength="250" />
+          <Property Name="billAddress1" Type="varchar" MaxLength="500" />
+          <Property Name="billAddress2" Type="varchar" MaxLength="500" />
+          <Property Name="billCountry_id" Type="int" />
+          <Property Name="billZip" Type="varchar" MaxLength="50" />
+          <Property Name="billState_id" Type="int" />
+          <Property Name="billCity" Type="varchar" MaxLength="500" />
+          <Property Name="billPhNo" Type="varchar" MaxLength="50" />
+          <Property Name="billMobNo" Type="varchar" MaxLength="50" />
+          <Property Name="billEmail" Type="varchar" MaxLength="50" />
+          <Property Name="billInstructions" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="tblBillingSateServer">
+          <Key>
+            <PropertyRef Name="BillingStateId" />
+          </Key>
+          <Property Name="BillingStateId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BillingStateName" Type="varchar" MaxLength="250" />
+          <Property Name="BillingCountryId" Type="int" />
+        </EntityType>
+        <EntityType Name="tblChapter_Master">
+          <Key>
+            <PropertyRef Name="Chapter_Id" />
+          </Key>
+          <Property Name="Chapter_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Chapter_Name" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Chapter_Matter" Type="varchar(max)" Nullable="false" />
+          <Property Name="Chapter_Group_Id" Type="int" Nullable="false" />
+          <Property Name="Chapter_RecordStatus" Type="tinyint" Nullable="false" />
+          <Property Name="Chapter_DateTime" Type="datetime" Nullable="false" />
+          <Property Name="Chapter_Path" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblchild">
+          <Key>
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="cid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="cname" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblCityMaster">
+          <Key>
+            <PropertyRef Name="city_id" />
+          </Key>
+          <Property Name="city_id" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="city_name" Type="varchar" MaxLength="250" />
+          <Property Name="city_status" Type="tinyint" />
+          <Property Name="city_datetime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblExpert_Master">
+          <Key>
+            <PropertyRef Name="expert_id" />
+          </Key>
+          <Property Name="expert_id" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="company_name" Type="varchar" MaxLength="500" />
+          <Property Name="login_id" Type="numeric" />
+          <Property Name="expert_name" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="tblgrantchild">
+          <Key>
+            <PropertyRef Name="gid" />
+          </Key>
+          <Property Name="gid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="gname" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblItemCategory_Web_Server">
+          <Key>
+            <PropertyRef Name="Category_Id" />
+          </Key>
+          <Property Name="Category_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Category_Name" Type="varchar" MaxLength="250" />
+          <Property Name="Parent_Category_id" Type="int" />
+          <Property Name="cat_page" Type="varchar" MaxLength="250" />
+          <Property Name="cat_level" Type="int" />
+          <Property Name="RewriteUrlPath" Type="varchar(max)" />
+          <Property Name="Cat_Type" Type="int" />
+        </EntityType>
+        <EntityType Name="tblLoginDetalisMaster">
+          <Key>
+            <PropertyRef Name="login_details_id" />
+          </Key>
+          <Property Name="login_details_id" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="fname" Type="varchar" MaxLength="500" />
+          <Property Name="lname" Type="varchar" MaxLength="500" />
+          <Property Name="dob" Type="datetime" />
+          <Property Name="ref_id" Type="numeric" />
+        </EntityType>
+        <EntityType Name="tblLoginMaster">
+          <Key>
+            <PropertyRef Name="login_id" />
+          </Key>
+          <Property Name="login_id" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Password" Type="varchar" MaxLength="250" />
+          <Property Name="address_id" Type="numeric" />
+          <Property Name="login_details_id" Type="numeric" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'employee.dbo.tblOrder_Pg_Details' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="tblOrder_Pg_Details">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="sbillno" Type="varchar" MaxLength="250" />
+          <Property Name="pgid" Type="int" />
+          <Property Name="poid" Type="int" />
+        </EntityType>
+        <EntityType Name="tblPackage_Master">
+          <Key>
+            <PropertyRef Name="package_id" />
+          </Key>
+          <Property Name="package_id" Type="int" Nullable="false" />
+          <Property Name="package_name" Type="varchar" MaxLength="500" />
+          <Property Name="serviceno" Type="int" />
+          <Property Name="cityno" Type="numeric" />
+          <Property Name="package_price" Type="float" />
+          <Property Name="package_type" Type="varchar" MaxLength="200" />
+          <Property Name="packagedesc" Type="varchar(max)" />
+          <Property Name="package_status" Type="tinyint" />
+          <Property Name="updatetime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblparent">
+          <Key>
+            <PropertyRef Name="pid" />
+          </Key>
+          <Property Name="pid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pname" Type="varchar" MaxLength="50" />
+          <Property Name="paddress" Type="varchar" MaxLength="50" />
+          <Property Name="cid" Type="int" />
+          <Property Name="sid" Type="int" />
+          <Property Name="gid" Type="int" />
+        </EntityType>
+        <EntityType Name="tblPaymentGatewayMaster">
+          <Key>
+            <PropertyRef Name="pgid" />
+          </Key>
+          <Property Name="pgid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pGatewayName" Type="varchar" MaxLength="500" />
+          <Property Name="UpdateDateTime" Type="datetime" />
+          <Property Name="ServiceTax" Type="float" />
+          <Property Name="Charge" Type="float" />
+          <Property Name="FixedCharge" Type="float" />
+          <Property Name="pg_status" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'employee.dbo.tblPaymentOptionGateway_Relation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="tblPaymentOptionGateway_Relation">
+          <Key>
+            <PropertyRef Name="pgid" />
+          </Key>
+          <Property Name="poid" Type="int" />
+          <Property Name="pgid" Type="int" Nullable="false" />
+          <Property Name="Rank" Type="int" />
+        </EntityType>
+        <EntityType Name="tblPaymentOptionMaster">
+          <Key>
+            <PropertyRef Name="Poid" />
+          </Key>
+          <Property Name="Poid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pOptionName" Type="varchar" MaxLength="500" />
+          <Property Name="Rank" Type="int" />
+          <Property Name="UpdateDateTime" Type="datetime" />
+          <Property Name="Image" Type="varchar(max)" />
+          <Property Name="Po_desc" Type="varchar(max)" />
+          <Property Name="po_status" Type="int" />
+        </EntityType>
+        <EntityType Name="tblPosBothay">
+          <Key>
+            <PropertyRef Name="Pos_Id" />
+          </Key>
+          <Property Name="Pos_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Pos_OName" Type="varchar" MaxLength="250" />
+          <Property Name="mkw" Type="varchar" MaxLength="250" />
+          <Property Name="lkw" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="tblRating">
+          <Key>
+            <PropertyRef Name="rating_id" />
+          </Key>
+          <Property Name="rating_id" Type="numeric" Nullable="false" Precision="4" StoreGeneratedPattern="Identity" />
+          <Property Name="expert_id" Type="numeric" Precision="4" />
+          <Property Name="login_id" Type="numeric" Precision="4" />
+          <Property Name="status" Type="numeric" Precision="4" />
+          <Property Name="rating" Type="numeric" Precision="4" />
+        </EntityType>
+        <EntityType Name="tblregister">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="varchar" MaxLength="50" />
+          <Property Name="price" Type="float" />
+          <Property Name="totprice" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'employee.dbo.tblsalesDetails_Bothway' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="tblsalesDetails_Bothway">
+          <Key>
+            <PropertyRef Name="SlNo" />
+          </Key>
+          <Property Name="SlNo" Type="int" Nullable="false" />
+          <Property Name="SbillBo" Type="varchar" MaxLength="250" />
+          <Property Name="Product_Id" Type="varchar" MaxLength="50" />
+          <Property Name="qty" Type="int" />
+          <Property Name="price" Type="decimal" />
+        </EntityType>
+        <EntityType Name="tblSalesDetailsBothway">
+          <Key>
+            <PropertyRef Name="recid" />
+          </Key>
+          <Property Name="recid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="sbillno" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="slno" Type="int" Nullable="false" />
+          <Property Name="qty" Type="int" Nullable="false" />
+          <Property Name="price" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'employee.dbo.tblSalesMasterBothway' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="tblSalesMasterBothway">
+          <Key>
+            <PropertyRef Name="sbillno" />
+          </Key>
+          <Property Name="sbillno" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="sales_aot" Type="float" />
+          <Property Name="dateofdelivery" Type="datetime" />
+          <Property Name="updatedatetime" Type="datetime" />
+          <Property Name="RecordStatus" Type="tinyint" />
+          <Property Name="sbillstatus" Type="tinyint" />
+          <Property Name="ipaddress" Type="varchar" MaxLength="50" />
+          <Property Name="dateofsales" Type="datetime" />
+          <Property Name="poid" Type="int" />
+          <Property Name="pgid" Type="int" />
+        </EntityType>
+        <EntityType Name="tblServiceMaster">
+          <Key>
+            <PropertyRef Name="service_id" />
+          </Key>
+          <Property Name="service_id" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="service_name" Type="varchar" MaxLength="250" />
+          <Property Name="service_status" Type="tinyint" />
+          <Property Name="service_datetime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblShippingCityMaster">
+          <Key>
+            <PropertyRef Name="ShippingCityId" />
+          </Key>
+          <Property Name="ShippingCityId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ShippingCityName" Type="varchar" MaxLength="250" />
+          <Property Name="ShippingStateId" Type="int" />
+        </EntityType>
+        <EntityType Name="tblShippingDetailsBothway">
+          <Key>
+            <PropertyRef Name="rec_id" />
+          </Key>
+          <Property Name="rec_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="sbillno" Type="varchar" MaxLength="250" />
+          <Property Name="shipFName" Type="varchar" MaxLength="250" />
+          <Property Name="shipLName" Type="varchar" MaxLength="250" />
+          <Property Name="shipAddress1" Type="varchar(max)" />
+          <Property Name="shipAddress2" Type="nchar" MaxLength="10" />
+          <Property Name="shipZip" Type="varchar" MaxLength="50" />
+          <Property Name="shipCountry_id" Type="int" />
+          <Property Name="shipState_id" Type="int" />
+          <Property Name="shipCity_id" Type="int" />
+          <Property Name="shipPhNo" Type="varchar" MaxLength="50" />
+          <Property Name="shipMobNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="shipEmail" Type="varchar" MaxLength="50" />
+          <Property Name="shipMsg" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="tblShippingStateMaster">
+          <Key>
+            <PropertyRef Name="ShippingSateId" />
+          </Key>
+          <Property Name="ShippingSateId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ShippingSateName" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'employee.dbo.tblSiteChapterMaster' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="tblSiteChapterMaster">
+          <Key>
+            <PropertyRef Name="Site_id" />
+            <PropertyRef Name="Parent_Id" />
+            <PropertyRef Name="chapter_level" />
+            <PropertyRef Name="Chapter_Id" />
+            <PropertyRef Name="Chapter_Path" />
+          </Key>
+          <Property Name="Site_id" Type="int" Nullable="false" />
+          <Property Name="Parent_Id" Type="int" Nullable="false" />
+          <Property Name="chapter_level" Type="int" Nullable="false" />
+          <Property Name="Chapter_Id" Type="int" Nullable="false" />
+          <Property Name="Chapter_Path" Type="varchar(max)" Nullable="false" />
+          <Property Name="metadata" Type="varchar(max)" />
+          <Property Name="metadesc" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="tblstate">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="sname" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblSubServiceMaster">
+          <Key>
+            <PropertyRef Name="subservice_id" />
+          </Key>
+          <Property Name="subservice_id" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="subservice_name" Type="varchar" MaxLength="250" />
+          <Property Name="subservice_status" Type="tinyint" />
+          <Property Name="subservice_datetime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblUserMaster">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="varchar" MaxLength="250" />
+          <Property Name="Password" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="testProduct">
+          <Key>
+            <PropertyRef Name="pid" />
+          </Key>
+          <Property Name="pid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pname" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="upload_file">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="tittle" Type="varchar" MaxLength="50" />
+          <Property Name="pic_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'employee.dbo.Videos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Videos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Video" Type="varbinary" MaxLength="50" />
+          <Property Name="Video_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Video_Size" Type="bigint" />
+        </EntityType>
+        <Function Name="bieux_stp_Delete_Product" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PKint_Product_Id" Type="int" Mode="In" />
+          <Parameter Name="intReturnId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="bieux_stp_Insert_Product" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PKint_Product_Id" Type="int" Mode="In" />
+          <Parameter Name="str_Product_Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="str_Color" Type="nvarchar" Mode="In" />
+          <Parameter Name="str_Quantity" Type="nvarchar" Mode="In" />
+          <Parameter Name="str_Size" Type="nvarchar" Mode="In" />
+          <Parameter Name="dec_Price" Type="decimal" Mode="In" />
+          <Parameter Name="int_Discount" Type="int" Mode="In" />
+          <Parameter Name="str_Details" Type="nvarchar" Mode="In" />
+          <Parameter Name="str_ImageHome" Type="nvarchar" Mode="In" />
+          <Parameter Name="str_ImageDetail" Type="nvarchar" Mode="In" />
+          <Parameter Name="chr_Activate_Status" Type="char" Mode="In" />
+          <Parameter Name="bln_Delete_Status" Type="bit" Mode="In" />
+          <Parameter Name="str_Page_Name" Type="varchar" Mode="In" />
+          <Parameter Name="str_summery_head" Type="varchar" Mode="In" />
+          <Parameter Name="str_bieuxskin_summery" Type="varchar" Mode="In" />
+          <Parameter Name="intProductID" Type="int" Mode="InOut" />
+          <Parameter Name="intReturnId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="bieux_stp_Insert_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PKint_Product_Id" Type="int" Mode="In" />
+          <Parameter Name="str_Product_Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="str_Color" Type="nvarchar" Mode="In" />
+          <Parameter Name="str_Quantity" Type="nvarchar" Mode="In" />
+          <Parameter Name="str_Size" Type="nvarchar" Mode="In" />
+          <Parameter Name="dec_Price" Type="decimal" Mode="In" />
+          <Parameter Name="int_Discount" Type="int" Mode="In" />
+          <Parameter Name="str_Details" Type="nvarchar" Mode="In" />
+          <Parameter Name="str_ImageHome" Type="nvarchar" Mode="In" />
+          <Parameter Name="str_ImageDetail" Type="nvarchar" Mode="In" />
+          <Parameter Name="chr_Activate_Status" Type="char" Mode="In" />
+          <Parameter Name="bln_Delete_Status" Type="bit" Mode="In" />
+          <Parameter Name="str_Page_Name" Type="varchar" Mode="In" />
+          <Parameter Name="str_summery_head" Type="varchar" Mode="In" />
+          <Parameter Name="str_bieuxskin_summery" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="bieux_stp_SelectAllProductDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PKint_Product_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetAllCutomers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetCustomerLNameInitials" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetCustomersByLNameInitial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Lni" Type="nchar" Mode="In" />
+        </Function>
+        <Function Name="LoginMe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+          <Parameter Name="Module" Type="varchar" Mode="In" />
+          <Parameter Name="RowCount" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="sb_sp_update_package_cost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="emp_id" Type="int" Mode="In" />
+          <Parameter Name="package_cost" Type="bigint" Mode="In" />
+          <Parameter Name="package_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="intReturnId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_cursor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="returnstat" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_test" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="package_name" Type="varchar" Mode="In" />
+          <Parameter Name="package_cost" Type="float" Mode="In" />
+          <Parameter Name="returnstat" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="stp_Add_Package_CitySelection" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="seletedcities" Type="int" Mode="In" />
+          <Parameter Name="seletedSubServiceIds" Type="varchar" Mode="In" />
+          <Parameter Name="login_id" Type="int" Mode="In" />
+          <Parameter Name="order_id" Type="varchar" Mode="In" />
+          <Parameter Name="package_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="stp_breadcrum_new" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="catid" Type="int" Mode="In" />
+          <Parameter Name="siteid" Type="int" Mode="In" />
+          <Parameter Name="breadcrum" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="stp_Delete_Product" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="emp_id" Type="int" Mode="In" />
+          <Parameter Name="intReturnId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="stp_demo_loop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="stp_griddetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="module" Type="varchar" Mode="In" />
+          <Parameter Name="emp_id" Type="int" Mode="In" />
+          <Parameter Name="package_cost" Type="decimal" Mode="In" />
+          <Parameter Name="package_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="RowCount" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="stp_griddetails1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="module" Type="varchar" Mode="In" />
+          <Parameter Name="RowCount" Type="int" Mode="InOut" />
+          <Parameter Name="intReturnId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="stp_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="package_cost" Type="decimal" Mode="In" />
+          <Parameter Name="package_name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="stp_InsertCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Parent_Category_id" Type="int" Mode="In" />
+          <Parameter Name="Category_Name" Type="varchar(max)" Mode="In" />
+          <Parameter Name="cat_page" Type="varchar" Mode="In" />
+          <Parameter Name="return_status" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="stp_loop_insertProd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="stp_orderinsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="billFName" Type="varchar" Mode="In" />
+          <Parameter Name="billLName" Type="varchar" Mode="In" />
+          <Parameter Name="billAddress1" Type="varchar" Mode="In" />
+          <Parameter Name="billAddress2" Type="varchar" Mode="In" />
+          <Parameter Name="billZip" Type="varchar" Mode="In" />
+          <Parameter Name="billCountry_id" Type="int" Mode="In" />
+          <Parameter Name="billState_id" Type="int" Mode="In" />
+          <Parameter Name="billCity" Type="varchar" Mode="In" />
+          <Parameter Name="billEmail" Type="varchar" Mode="In" />
+          <Parameter Name="billPhNo" Type="varchar" Mode="In" />
+          <Parameter Name="billMobNo" Type="varchar" Mode="In" />
+          <Parameter Name="billInstructions" Type="varchar(max)" Mode="In" />
+          <Parameter Name="shipFName" Type="varchar" Mode="In" />
+          <Parameter Name="shipLName" Type="varchar" Mode="In" />
+          <Parameter Name="shipAddress1" Type="varchar" Mode="In" />
+          <Parameter Name="shipAddress2" Type="varchar" Mode="In" />
+          <Parameter Name="shipZip" Type="varchar" Mode="In" />
+          <Parameter Name="shipState_id" Type="int" Mode="In" />
+          <Parameter Name="shipCity_id" Type="int" Mode="In" />
+          <Parameter Name="shipCountry_id" Type="int" Mode="In" />
+          <Parameter Name="shipEmail" Type="varchar" Mode="In" />
+          <Parameter Name="shipPhNo" Type="varchar" Mode="In" />
+          <Parameter Name="shipMobNo" Type="varchar" Mode="In" />
+          <Parameter Name="shipMsg" Type="varchar(max)" Mode="In" />
+          <Parameter Name="dateofdelivery" Type="varchar" Mode="In" />
+          <Parameter Name="ipaddress" Type="varchar" Mode="In" />
+          <Parameter Name="sales_aot" Type="decimal" Mode="In" />
+          <Parameter Name="poid" Type="int" Mode="In" />
+          <Parameter Name="pgid" Type="int" Mode="In" />
+          <Parameter Name="nvarchardetails" Type="varchar(max)" Mode="In" />
+          <Parameter Name="disc" Type="bit" Mode="In" />
+          <Parameter Name="disc_code" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="stp_SelectAllProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="stp_SelectAllProductDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="stp_stp_Add_Package_CitySelection" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="seletedcities" Type="int" Mode="In" />
+          <Parameter Name="seletedSubServiceIds" Type="varchar" Mode="In" />
+          <Parameter Name="login_id" Type="int" Mode="In" />
+          <Parameter Name="order_id" Type="varchar" Mode="In" />
+          <Parameter Name="package_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="stp_Survice_SubService_Relation_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="service_id" Type="int" Mode="In" />
+          <Parameter Name="ids" Type="varchar" Mode="In" />
+        </Function>
+        <!--Errors Found During Generation:
+      warning 6013: The table/view 'employee.dbo.DUPLICATE' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="DUPLICATE">
+        <Property Name="id" Type="int" />
+        <Property Name="col" Type="varchar" MaxLength="50" />
+        <Property Name="status" Type="int" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'employee.dbo.myTable' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="myTable">
+        <Property Name="firstName" Type="varchar" MaxLength="50" />
+        <Property Name="lastName" Type="varchar" MaxLength="50" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'employee.dbo.std' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="std">
+        <Property Name="name" Type="varchar" MaxLength="50" />
+        <Property Name="dept_id" Type="int" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'employee.dbo.tblCity_SubService_Relation' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="tblCity_SubService_Relation">
+        <Property Name="city_id" Type="numeric" />
+        <Property Name="subservice_id" Type="numeric" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'employee.dbo.tblDiscountMaster' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="tblDiscountMaster">
+        <Property Name="SiteId" Type="varchar" MaxLength="50" />
+        <Property Name="disc_code" Type="varchar" MaxLength="50" />
+        <Property Name="disc_amt" Type="float" />
+        <Property Name="disc" Type="bit" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'employee.dbo.tblPackageCitySelection' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="tblPackageCitySelection">
+        <Property Name="login_id" Type="numeric" />
+        <Property Name="city_id" Type="numeric" />
+        <Property Name="service_id" Type="numeric" />
+        <Property Name="subservice_id" Type="numeric" />
+        <Property Name="package_status" Type="tinyint" />
+        <Property Name="order_id" Type="varchar" MaxLength="250" />
+        <Property Name="package_id" Type="numeric" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'employee.dbo.tblpg_OrderDetails' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="tblpg_OrderDetails">
+        <Property Name="sbillno" Type="varchar" MaxLength="50" />
+        <Property Name="poid" Type="int" />
+        <Property Name="pgid" Type="int" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'employee.dbo.tblProduct' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="tblProduct">
+        <Property Name="Cust" Type="varchar" MaxLength="25" />
+        <Property Name="Product" Type="varchar" MaxLength="20" />
+        <Property Name="QTY" Type="int" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'employee.dbo.tblService_City_Relation' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="tblService_City_Relation">
+        <Property Name="city_id" Type="numeric" />
+        <Property Name="service_id" Type="numeric" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'employee.dbo.tblService_SubService_City_Relation' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="tblService_SubService_City_Relation">
+        <Property Name="service_id" Type="int" />
+        <Property Name="subservice_id" Type="int" />
+        <Property Name="city_id" Type="int" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'employee.dbo.tblService_SubService_Relation' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="tblService_SubService_Relation">
+        <Property Name="service_id" Type="int" />
+        <Property Name="subservice_id" Type="int" />
+      </EntityType>-->
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="employeeModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="employeeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="abbr_subchild" EntityType="employeeModel.abbr_subchild" />
+          <EntitySet Name="admin_login" EntityType="employeeModel.admin_login" />
+          <EntitySet Name="ADMIN_USER_MASTER" EntityType="employeeModel.ADMIN_USER_MASTER" />
+          <EntitySet Name="Customers" EntityType="employeeModel.Customer" />
+          <EntitySet Name="depts" EntityType="employeeModel.dept" />
+          <EntitySet Name="emps" EntityType="employeeModel.emp" />
+          <EntitySet Name="emp_class" EntityType="employeeModel.emp_class" />
+          <EntitySet Name="emp1" EntityType="employeeModel.emp1" />
+          <EntitySet Name="emp2" EntityType="employeeModel.emp2" />
+          <EntitySet Name="employees" EntityType="employeeModel.employee" />
+          <EntitySet Name="employee1" EntityType="employeeModel.employee1" />
+          <EntitySet Name="fans" EntityType="employeeModel.fan" />
+          <EntitySet Name="items" EntityType="employeeModel.item" />
+          <EntitySet Name="locations" EntityType="employeeModel.location" />
+          <EntitySet Name="People" EntityType="employeeModel.Person" />
+          <EntitySet Name="performerlists" EntityType="employeeModel.performerlist" />
+          <EntitySet Name="products" EntityType="employeeModel.product" />
+          <EntitySet Name="Products1" EntityType="employeeModel.Product1" />
+          <EntitySet Name="ranktables" EntityType="employeeModel.ranktable" />
+          <EntitySet Name="students" EntityType="employeeModel.student" />
+          <EntitySet Name="sysdiagrams" EntityType="employeeModel.sysdiagram" />
+          <EntitySet Name="tblAddressMasters" EntityType="employeeModel.tblAddressMaster" />
+          <EntitySet Name="tblArticle_Chapter_Relation" EntityType="employeeModel.tblArticle_Chapter_Relation" />
+          <EntitySet Name="tblArticleMasters" EntityType="employeeModel.tblArticleMaster" />
+          <EntitySet Name="tblBillingCountryServers" EntityType="employeeModel.tblBillingCountryServer" />
+          <EntitySet Name="tblBillingDetailsBothways" EntityType="employeeModel.tblBillingDetailsBothway" />
+          <EntitySet Name="tblBillingSateServers" EntityType="employeeModel.tblBillingSateServer" />
+          <EntitySet Name="tblChapter_Master" EntityType="employeeModel.tblChapter_Master" />
+          <EntitySet Name="tblchilds" EntityType="employeeModel.tblchild" />
+          <EntitySet Name="tblCityMasters" EntityType="employeeModel.tblCityMaster" />
+          <EntitySet Name="tblExpert_Master" EntityType="employeeModel.tblExpert_Master" />
+          <EntitySet Name="tblgrantchilds" EntityType="employeeModel.tblgrantchild" />
+          <EntitySet Name="tblItemCategory_Web_Server" EntityType="employeeModel.tblItemCategory_Web_Server" />
+          <EntitySet Name="tblLoginDetalisMasters" EntityType="employeeModel.tblLoginDetalisMaster" />
+          <EntitySet Name="tblLoginMasters" EntityType="employeeModel.tblLoginMaster" />
+          <EntitySet Name="tblOrder_Pg_Details" EntityType="employeeModel.tblOrder_Pg_Details" />
+          <EntitySet Name="tblPackage_Master" EntityType="employeeModel.tblPackage_Master" />
+          <EntitySet Name="tblparents" EntityType="employeeModel.tblparent" />
+          <EntitySet Name="tblPaymentGatewayMasters" EntityType="employeeModel.tblPaymentGatewayMaster" />
+          <EntitySet Name="tblPaymentOptionGateway_Relation" EntityType="employeeModel.tblPaymentOptionGateway_Relation" />
+          <EntitySet Name="tblPaymentOptionMasters" EntityType="employeeModel.tblPaymentOptionMaster" />
+          <EntitySet Name="tblPosBothays" EntityType="employeeModel.tblPosBothay" />
+          <EntitySet Name="tblRatings" EntityType="employeeModel.tblRating" />
+          <EntitySet Name="tblregisters" EntityType="employeeModel.tblregister" />
+          <EntitySet Name="tblsalesDetails_Bothway" EntityType="employeeModel.tblsalesDetails_Bothway" />
+          <EntitySet Name="tblSalesDetailsBothways" EntityType="employeeModel.tblSalesDetailsBothway" />
+          <EntitySet Name="tblSalesMasterBothways" EntityType="employeeModel.tblSalesMasterBothway" />
+          <EntitySet Name="tblServiceMasters" EntityType="employeeModel.tblServiceMaster" />
+          <EntitySet Name="tblShippingCityMasters" EntityType="employeeModel.tblShippingCityMaster" />
+          <EntitySet Name="tblShippingDetailsBothways" EntityType="employeeModel.tblShippingDetailsBothway" />
+          <EntitySet Name="tblShippingStateMasters" EntityType="employeeModel.tblShippingStateMaster" />
+          <EntitySet Name="tblSiteChapterMasters" EntityType="employeeModel.tblSiteChapterMaster" />
+          <EntitySet Name="tblstates" EntityType="employeeModel.tblstate" />
+          <EntitySet Name="tblSubServiceMasters" EntityType="employeeModel.tblSubServiceMaster" />
+          <EntitySet Name="tblUserMasters" EntityType="employeeModel.tblUserMaster" />
+          <EntitySet Name="testProducts" EntityType="employeeModel.testProduct" />
+          <EntitySet Name="upload_file" EntityType="employeeModel.upload_file" />
+          <EntitySet Name="Videos" EntityType="employeeModel.Video" />
+        </EntityContainer>
+        <EntityType Name="abbr_subchild">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="abbr" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="fullname" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="admin_login">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="user_password" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="status" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ADMIN_USER_MASTER">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginId" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="PrimaryEmail" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="CompanyName" />
+          </Key>
+          <Property Name="CustomerID" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="true" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="ContactName" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="ContactTitle" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="Region" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="PostalCode" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="Country" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="Phone" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+          <Property Name="Fax" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="dept">
+          <Key>
+            <PropertyRef Name="dept_id" />
+          </Key>
+          <Property Name="dept_id" Type="Int32" Nullable="false" />
+          <Property Name="dept_name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="emp">
+          <Key>
+            <PropertyRef Name="emp_id" />
+            <PropertyRef Name="fname" />
+            <PropertyRef Name="lname" />
+            <PropertyRef Name="adress" />
+          </Key>
+          <Property Name="emp_id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="fname" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="lname" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="adress" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="emp_class">
+          <Key>
+            <PropertyRef Name="emp_id" />
+            <PropertyRef Name="dept" />
+          </Key>
+          <Property Name="emp_id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="dept" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="emp1">
+          <Key>
+            <PropertyRef Name="PKint_Product_Id" />
+          </Key>
+          <Property Name="PKint_Product_Id" Type="Int32" Nullable="false" />
+          <Property Name="str_Product_Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="str_Color" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="str_Quantity" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="str_Size" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="dec_Price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="int_Discount" Type="Int32" />
+          <Property Name="str_Details" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="str_ImageHome" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="str_ImageDetail" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="chr_Activate_Status" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="bln_Delete_Status" Type="Boolean" />
+          <Property Name="str_Page_Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="str_summery_head" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="str_bieuxskin_summery" Type="String" MaxLength="6500" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="emp2">
+          <Key>
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Name="emp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="package_name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="package_cost" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="id1" Type="Int32" />
+          <Property Name="checked" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Name="emp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="emp_name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="employee1">
+          <Key>
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Name="emp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="emp_name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="fan">
+          <Key>
+            <PropertyRef Name="fan_id" />
+          </Key>
+          <Property Name="fan_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="image_name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="tittle" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="url_name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="item">
+          <Key>
+            <PropertyRef Name="item_id" />
+          </Key>
+          <Property Name="item_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pid" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="cid" Type="Int32" />
+          <Property Name="item_name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="image_name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="item_cost" Type="Double" />
+          <Property Name="item_description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="qty" Type="Int32" />
+        </EntityType>
+        <EntityType Name="location">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="city" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="country" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="PersonId" />
+          </Key>
+          <Property Name="PersonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="BirthDate" Type="DateTime" />
+          <Property Name="Children" Type="Int32" />
+        </EntityType>
+        <EntityType Name="performerlist">
+          <Key>
+            <PropertyRef Name="evtId" />
+          </Key>
+          <Property Name="evtId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tnetworkEventId" Type="Int32" />
+          <Property Name="tnowEventId" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="stubhubEventId" Type="Int32" />
+          <Property Name="evtName" Type="Int32" />
+          <Property Name="genre" Type="Int32" />
+          <Property Name="genreGrand" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="date" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="venue" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="city" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="pcatId" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="ccatId" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="gcatId" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="cost" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="date" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="Product1">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="SupplierID" Type="Int32" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="QuantityPerUnit" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="UnitsInStock" Type="Int16" />
+          <Property Name="UnitsOnOrder" Type="Int16" />
+          <Property Name="ReorderLevel" Type="Int16" />
+          <Property Name="Discontinued" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ranktable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="col1" Type="Int32" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="lid" />
+          </Key>
+          <Property Name="lid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fname" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="lname" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblAddressMaster">
+          <Key>
+            <PropertyRef Name="address_id" />
+          </Key>
+          <Property Name="address_id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="PIN" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="address1" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="address2" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="state_id" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="tblArticle_Chapter_Relation">
+          <Key>
+            <PropertyRef Name="Record_Id" />
+          </Key>
+          <Property Name="Record_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Article_Id" Type="Int32" Nullable="false" />
+          <Property Name="Chapter_Id" Type="Int32" Nullable="false" />
+          <Property Name="RecordStatus" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblArticleMaster">
+          <Key>
+            <PropertyRef Name="Article_Id" />
+          </Key>
+          <Property Name="Article_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Article_Name" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Article_Matter" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Article_Group_Id" Type="Int32" Nullable="false" />
+          <Property Name="Article_Record_Status" Type="Byte" Nullable="false" />
+          <Property Name="Article_UpdateDateTime" Type="DateTime" Nullable="false" />
+          <Property Name="Article_Path" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Article_CreateDateTime" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblBillingCountryServer">
+          <Key>
+            <PropertyRef Name="countryId" />
+          </Key>
+          <Property Name="countryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblBillingDetailsBothway">
+          <Key>
+            <PropertyRef Name="recid" />
+          </Key>
+          <Property Name="recid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sbillno" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="billFName" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="billLName" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="billAddress1" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="billAddress2" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="billCountry_id" Type="Int32" />
+          <Property Name="billZip" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="billState_id" Type="Int32" />
+          <Property Name="billCity" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="billPhNo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="billMobNo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="billEmail" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="billInstructions" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblBillingSateServer">
+          <Key>
+            <PropertyRef Name="BillingStateId" />
+          </Key>
+          <Property Name="BillingStateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BillingStateName" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="BillingCountryId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblChapter_Master">
+          <Key>
+            <PropertyRef Name="Chapter_Id" />
+          </Key>
+          <Property Name="Chapter_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Chapter_Name" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Chapter_Matter" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Chapter_Group_Id" Type="Int32" Nullable="false" />
+          <Property Name="Chapter_RecordStatus" Type="Byte" Nullable="false" />
+          <Property Name="Chapter_DateTime" Type="DateTime" Nullable="false" />
+          <Property Name="Chapter_Path" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblchild">
+          <Key>
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="cid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cname" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblCityMaster">
+          <Key>
+            <PropertyRef Name="city_id" />
+          </Key>
+          <Property Name="city_id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="city_name" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="city_status" Type="Byte" />
+          <Property Name="city_datetime" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="tblExpert_Master">
+          <Key>
+            <PropertyRef Name="expert_id" />
+          </Key>
+          <Property Name="expert_id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="company_name" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="login_id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="expert_name" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblgrantchild">
+          <Key>
+            <PropertyRef Name="gid" />
+          </Key>
+          <Property Name="gid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="gname" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblItemCategory_Web_Server">
+          <Key>
+            <PropertyRef Name="Category_Id" />
+          </Key>
+          <Property Name="Category_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category_Name" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Parent_Category_id" Type="Int32" />
+          <Property Name="cat_page" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="cat_level" Type="Int32" />
+          <Property Name="RewriteUrlPath" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Cat_Type" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblLoginDetalisMaster">
+          <Key>
+            <PropertyRef Name="login_details_id" />
+          </Key>
+          <Property Name="login_details_id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fname" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="lname" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="dob" Type="DateTime" />
+          <Property Name="ref_id" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="tblLoginMaster">
+          <Key>
+            <PropertyRef Name="login_id" />
+          </Key>
+          <Property Name="login_id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="address_id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="login_details_id" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="tblOrder_Pg_Details">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sbillno" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="pgid" Type="Int32" />
+          <Property Name="poid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblPackage_Master">
+          <Key>
+            <PropertyRef Name="package_id" />
+          </Key>
+          <Property Name="package_id" Type="Int32" Nullable="false" />
+          <Property Name="package_name" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="serviceno" Type="Int32" />
+          <Property Name="cityno" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="package_price" Type="Double" />
+          <Property Name="package_type" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="packagedesc" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="package_status" Type="Byte" />
+          <Property Name="updatetime" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="tblparent">
+          <Key>
+            <PropertyRef Name="pid" />
+          </Key>
+          <Property Name="pid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pname" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="paddress" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="cid" Type="Int32" />
+          <Property Name="sid" Type="Int32" />
+          <Property Name="gid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblPaymentGatewayMaster">
+          <Key>
+            <PropertyRef Name="pgid" />
+          </Key>
+          <Property Name="pgid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pGatewayName" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="UpdateDateTime" Type="DateTime" />
+          <Property Name="ServiceTax" Type="Double" />
+          <Property Name="Charge" Type="Double" />
+          <Property Name="FixedCharge" Type="Double" />
+          <Property Name="pg_status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblPaymentOptionGateway_Relation">
+          <Key>
+            <PropertyRef Name="pgid" />
+          </Key>
+          <Property Name="poid" Type="Int32" />
+          <Property Name="pgid" Type="Int32" Nullable="false" />
+          <Property Name="Rank" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblPaymentOptionMaster">
+          <Key>
+            <PropertyRef Name="Poid" />
+          </Key>
+          <Property Name="Poid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pOptionName" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="Rank" Type="Int32" />
+          <Property Name="UpdateDateTime" Type="DateTime" />
+          <Property Name="Image" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Po_desc" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="po_status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblPosBothay">
+          <Key>
+            <PropertyRef Name="Pos_Id" />
+          </Key>
+          <Property Name="Pos_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pos_OName" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="mkw" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="lkw" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblRating">
+          <Key>
+            <PropertyRef Name="rating_id" />
+          </Key>
+          <Property Name="rating_id" Type="Decimal" Nullable="false" Precision="4" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="expert_id" Type="Decimal" Precision="4" Scale="0" />
+          <Property Name="login_id" Type="Decimal" Precision="4" Scale="0" />
+          <Property Name="status" Type="Decimal" Precision="4" Scale="0" />
+          <Property Name="rating" Type="Decimal" Precision="4" Scale="0" />
+        </EntityType>
+        <EntityType Name="tblregister">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="address" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="price" Type="Double" />
+          <Property Name="totprice" Type="Double" />
+        </EntityType>
+        <EntityType Name="tblsalesDetails_Bothway">
+          <Key>
+            <PropertyRef Name="SlNo" />
+          </Key>
+          <Property Name="SlNo" Type="Int32" Nullable="false" />
+          <Property Name="SbillBo" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Product_Id" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="qty" Type="Int32" />
+          <Property Name="price" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="tblSalesDetailsBothway">
+          <Key>
+            <PropertyRef Name="recid" />
+          </Key>
+          <Property Name="recid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sbillno" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="slno" Type="Int32" Nullable="false" />
+          <Property Name="qty" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblSalesMasterBothway">
+          <Key>
+            <PropertyRef Name="sbillno" />
+          </Key>
+          <Property Name="sbillno" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="sales_aot" Type="Double" />
+          <Property Name="dateofdelivery" Type="DateTime" />
+          <Property Name="updatedatetime" Type="DateTime" />
+          <Property Name="RecordStatus" Type="Byte" />
+          <Property Name="sbillstatus" Type="Byte" />
+          <Property Name="ipaddress" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="dateofsales" Type="DateTime" />
+          <Property Name="poid" Type="Int32" />
+          <Property Name="pgid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblServiceMaster">
+          <Key>
+            <PropertyRef Name="service_id" />
+          </Key>
+          <Property Name="service_id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="service_name" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="service_status" Type="Byte" />
+          <Property Name="service_datetime" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="tblShippingCityMaster">
+          <Key>
+            <PropertyRef Name="ShippingCityId" />
+          </Key>
+          <Property Name="ShippingCityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShippingCityName" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="ShippingStateId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblShippingDetailsBothway">
+          <Key>
+            <PropertyRef Name="rec_id" />
+          </Key>
+          <Property Name="rec_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sbillno" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="shipFName" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="shipLName" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="shipAddress1" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="shipAddress2" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="shipZip" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="shipCountry_id" Type="Int32" />
+          <Property Name="shipState_id" Type="Int32" />
+          <Property Name="shipCity_id" Type="Int32" />
+          <Property Name="shipPhNo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="shipMobNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="shipEmail" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="shipMsg" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblShippingStateMaster">
+          <Key>
+            <PropertyRef Name="ShippingSateId" />
+          </Key>
+          <Property Name="ShippingSateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShippingSateName" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblSiteChapterMaster">
+          <Key>
+            <PropertyRef Name="Site_id" />
+            <PropertyRef Name="Parent_Id" />
+            <PropertyRef Name="chapter_level" />
+            <PropertyRef Name="Chapter_Id" />
+            <PropertyRef Name="Chapter_Path" />
+          </Key>
+          <Property Name="Site_id" Type="Int32" Nullable="false" />
+          <Property Name="Parent_Id" Type="Int32" Nullable="false" />
+          <Property Name="chapter_level" Type="Int32" Nullable="false" />
+          <Property Name="Chapter_Id" Type="Int32" Nullable="false" />
+          <Property Name="Chapter_Path" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="metadata" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="metadesc" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblstate">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sname" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblSubServiceMaster">
+          <Key>
+            <PropertyRef Name="subservice_id" />
+          </Key>
+          <Property Name="subservice_id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="subservice_name" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="subservice_status" Type="Byte" />
+          <Property Name="subservice_datetime" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="tblUserMaster">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="testProduct">
+          <Key>
+            <PropertyRef Name="pid" />
+          </Key>
+          <Property Name="pid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pname" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="upload_file">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tittle" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="pic_name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Video1" Type="Binary" MaxLength="50" FixedLength="false" />
+          <Property Name="Video_Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Video_Size" Type="Int64" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="employeeModelStoreContainer" CdmEntityContainer="employeeEntities">
+          <EntitySetMapping Name="abbr_subchild"><EntityTypeMapping TypeName="employeeModel.abbr_subchild"><MappingFragment StoreEntitySet="abbr_subchild">
+            <ScalarProperty Name="sid" ColumnName="sid" />
+            <ScalarProperty Name="abbr" ColumnName="abbr" />
+            <ScalarProperty Name="fullname" ColumnName="fullname" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="admin_login"><EntityTypeMapping TypeName="employeeModel.admin_login"><MappingFragment StoreEntitySet="admin_login">
+            <ScalarProperty Name="user_id" ColumnName="user_id" />
+            <ScalarProperty Name="user_name" ColumnName="user_name" />
+            <ScalarProperty Name="user_password" ColumnName="user_password" />
+            <ScalarProperty Name="status" ColumnName="status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ADMIN_USER_MASTER"><EntityTypeMapping TypeName="employeeModel.ADMIN_USER_MASTER"><MappingFragment StoreEntitySet="ADMIN_USER_MASTER">
+            <ScalarProperty Name="userid" ColumnName="userid" />
+            <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+            <ScalarProperty Name="PrimaryEmail" ColumnName="PrimaryEmail" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+            <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+            <ScalarProperty Name="LastName" ColumnName="LastName" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Customers"><EntityTypeMapping TypeName="employeeModel.Customer"><MappingFragment StoreEntitySet="Customers">
+            <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+            <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+            <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+            <ScalarProperty Name="ContactTitle" ColumnName="ContactTitle" />
+            <ScalarProperty Name="Address" ColumnName="Address" />
+            <ScalarProperty Name="City" ColumnName="City" />
+            <ScalarProperty Name="Region" ColumnName="Region" />
+            <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+            <ScalarProperty Name="Country" ColumnName="Country" />
+            <ScalarProperty Name="Phone" ColumnName="Phone" />
+            <ScalarProperty Name="Fax" ColumnName="Fax" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="depts"><EntityTypeMapping TypeName="employeeModel.dept"><MappingFragment StoreEntitySet="dept">
+            <ScalarProperty Name="dept_id" ColumnName="dept_id" />
+            <ScalarProperty Name="dept_name" ColumnName="dept_name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="emps"><EntityTypeMapping TypeName="employeeModel.emp"><MappingFragment StoreEntitySet="emp">
+            <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+            <ScalarProperty Name="fname" ColumnName="fname" />
+            <ScalarProperty Name="lname" ColumnName="lname" />
+            <ScalarProperty Name="adress" ColumnName="adress" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="emp_class"><EntityTypeMapping TypeName="employeeModel.emp_class"><MappingFragment StoreEntitySet="emp_class">
+            <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+            <ScalarProperty Name="dept" ColumnName="dept" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="emp1"><EntityTypeMapping TypeName="employeeModel.emp1"><MappingFragment StoreEntitySet="emp1">
+            <ScalarProperty Name="PKint_Product_Id" ColumnName="PKint_Product_Id" />
+            <ScalarProperty Name="str_Product_Name" ColumnName="str_Product_Name" />
+            <ScalarProperty Name="str_Color" ColumnName="str_Color" />
+            <ScalarProperty Name="str_Quantity" ColumnName="str_Quantity" />
+            <ScalarProperty Name="str_Size" ColumnName="str_Size" />
+            <ScalarProperty Name="dec_Price" ColumnName="dec_Price" />
+            <ScalarProperty Name="int_Discount" ColumnName="int_Discount" />
+            <ScalarProperty Name="str_Details" ColumnName="str_Details" />
+            <ScalarProperty Name="str_ImageHome" ColumnName="str_ImageHome" />
+            <ScalarProperty Name="str_ImageDetail" ColumnName="str_ImageDetail" />
+            <ScalarProperty Name="chr_Activate_Status" ColumnName="chr_Activate_Status" />
+            <ScalarProperty Name="bln_Delete_Status" ColumnName="bln_Delete_Status" />
+            <ScalarProperty Name="str_Page_Name" ColumnName="str_Page_Name" />
+            <ScalarProperty Name="str_summery_head" ColumnName="str_summery_head" />
+            <ScalarProperty Name="str_bieuxskin_summery" ColumnName="str_bieuxskin_summery" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="emp2"><EntityTypeMapping TypeName="employeeModel.emp2"><MappingFragment StoreEntitySet="emp2">
+            <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+            <ScalarProperty Name="package_name" ColumnName="package_name" />
+            <ScalarProperty Name="package_cost" ColumnName="package_cost" />
+            <ScalarProperty Name="id1" ColumnName="id1" />
+            <ScalarProperty Name="checked" ColumnName="checked" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="employees"><EntityTypeMapping TypeName="employeeModel.employee"><MappingFragment StoreEntitySet="employee">
+            <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+            <ScalarProperty Name="emp_name" ColumnName="emp_name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="employee1"><EntityTypeMapping TypeName="employeeModel.employee1"><MappingFragment StoreEntitySet="employee1">
+            <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+            <ScalarProperty Name="emp_name" ColumnName="emp_name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="fans"><EntityTypeMapping TypeName="employeeModel.fan"><MappingFragment StoreEntitySet="fan">
+            <ScalarProperty Name="fan_id" ColumnName="fan_id" />
+            <ScalarProperty Name="image_name" ColumnName="image_name" />
+            <ScalarProperty Name="tittle" ColumnName="tittle" />
+            <ScalarProperty Name="description" ColumnName="description" />
+            <ScalarProperty Name="url_name" ColumnName="url_name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="items"><EntityTypeMapping TypeName="employeeModel.item"><MappingFragment StoreEntitySet="item">
+            <ScalarProperty Name="item_id" ColumnName="item_id" />
+            <ScalarProperty Name="pid" ColumnName="pid" />
+            <ScalarProperty Name="cid" ColumnName="cid" />
+            <ScalarProperty Name="item_name" ColumnName="item_name" />
+            <ScalarProperty Name="image_name" ColumnName="image_name" />
+            <ScalarProperty Name="item_cost" ColumnName="item_cost" />
+            <ScalarProperty Name="item_description" ColumnName="item_description" />
+            <ScalarProperty Name="qty" ColumnName="qty" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="locations"><EntityTypeMapping TypeName="employeeModel.location"><MappingFragment StoreEntitySet="location">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="address" ColumnName="address" />
+            <ScalarProperty Name="city" ColumnName="city" />
+            <ScalarProperty Name="country" ColumnName="country" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="People"><EntityTypeMapping TypeName="employeeModel.Person"><MappingFragment StoreEntitySet="People">
+            <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Surname" ColumnName="Surname" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+            <ScalarProperty Name="Children" ColumnName="Children" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="performerlists"><EntityTypeMapping TypeName="employeeModel.performerlist"><MappingFragment StoreEntitySet="performerlist">
+            <ScalarProperty Name="evtId" ColumnName="evtId" />
+            <ScalarProperty Name="tnetworkEventId" ColumnName="tnetworkEventId" />
+            <ScalarProperty Name="tnowEventId" ColumnName="tnowEventId" />
+            <ScalarProperty Name="stubhubEventId" ColumnName="stubhubEventId" />
+            <ScalarProperty Name="evtName" ColumnName="evtName" />
+            <ScalarProperty Name="genre" ColumnName="genre" />
+            <ScalarProperty Name="genreGrand" ColumnName="genreGrand" />
+            <ScalarProperty Name="date" ColumnName="date" />
+            <ScalarProperty Name="venue" ColumnName="venue" />
+            <ScalarProperty Name="city" ColumnName="city" />
+            <ScalarProperty Name="pcatId" ColumnName="pcatId" />
+            <ScalarProperty Name="ccatId" ColumnName="ccatId" />
+            <ScalarProperty Name="gcatId" ColumnName="gcatId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="products"><EntityTypeMapping TypeName="employeeModel.product"><MappingFragment StoreEntitySet="product">
+            <ScalarProperty Name="product_id" ColumnName="product_id" />
+            <ScalarProperty Name="product_name" ColumnName="product_name" />
+            <ScalarProperty Name="cost" ColumnName="cost" />
+            <ScalarProperty Name="date" ColumnName="date" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Products1"><EntityTypeMapping TypeName="employeeModel.Product1"><MappingFragment StoreEntitySet="Products">
+            <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+            <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+            <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+            <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+            <ScalarProperty Name="QuantityPerUnit" ColumnName="QuantityPerUnit" />
+            <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+            <ScalarProperty Name="UnitsInStock" ColumnName="UnitsInStock" />
+            <ScalarProperty Name="UnitsOnOrder" ColumnName="UnitsOnOrder" />
+            <ScalarProperty Name="ReorderLevel" ColumnName="ReorderLevel" />
+            <ScalarProperty Name="Discontinued" ColumnName="Discontinued" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ranktables"><EntityTypeMapping TypeName="employeeModel.ranktable"><MappingFragment StoreEntitySet="ranktable">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="col1" ColumnName="col1" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="students"><EntityTypeMapping TypeName="employeeModel.student"><MappingFragment StoreEntitySet="student">
+            <ScalarProperty Name="lid" ColumnName="lid" />
+            <ScalarProperty Name="fname" ColumnName="fname" />
+            <ScalarProperty Name="lname" ColumnName="lname" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams"><EntityTypeMapping TypeName="employeeModel.sysdiagram"><MappingFragment StoreEntitySet="sysdiagrams">
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+            <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+            <ScalarProperty Name="version" ColumnName="version" />
+            <ScalarProperty Name="definition" ColumnName="definition" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblAddressMasters"><EntityTypeMapping TypeName="employeeModel.tblAddressMaster"><MappingFragment StoreEntitySet="tblAddressMaster">
+            <ScalarProperty Name="address_id" ColumnName="address_id" />
+            <ScalarProperty Name="email" ColumnName="email" />
+            <ScalarProperty Name="City" ColumnName="City" />
+            <ScalarProperty Name="PIN" ColumnName="PIN" />
+            <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+            <ScalarProperty Name="address1" ColumnName="address1" />
+            <ScalarProperty Name="address2" ColumnName="address2" />
+            <ScalarProperty Name="state_id" ColumnName="state_id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblArticle_Chapter_Relation"><EntityTypeMapping TypeName="employeeModel.tblArticle_Chapter_Relation"><MappingFragment StoreEntitySet="tblArticle_Chapter_Relation">
+            <ScalarProperty Name="Record_Id" ColumnName="Record_Id" />
+            <ScalarProperty Name="Article_Id" ColumnName="Article_Id" />
+            <ScalarProperty Name="Chapter_Id" ColumnName="Chapter_Id" />
+            <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblArticleMasters"><EntityTypeMapping TypeName="employeeModel.tblArticleMaster"><MappingFragment StoreEntitySet="tblArticleMaster">
+            <ScalarProperty Name="Article_Id" ColumnName="Article_Id" />
+            <ScalarProperty Name="Article_Name" ColumnName="Article_Name" />
+            <ScalarProperty Name="Article_Matter" ColumnName="Article_Matter" />
+            <ScalarProperty Name="Article_Group_Id" ColumnName="Article_Group_Id" />
+            <ScalarProperty Name="Article_Record_Status" ColumnName="Article_Record_Status" />
+            <ScalarProperty Name="Article_UpdateDateTime" ColumnName="Article_UpdateDateTime" />
+            <ScalarProperty Name="Article_Path" ColumnName="Article_Path" />
+            <ScalarProperty Name="Article_CreateDateTime" ColumnName="Article_CreateDateTime" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblBillingCountryServers"><EntityTypeMapping TypeName="employeeModel.tblBillingCountryServer"><MappingFragment StoreEntitySet="tblBillingCountryServer">
+            <ScalarProperty Name="countryId" ColumnName="countryId" />
+            <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblBillingDetailsBothways"><EntityTypeMapping TypeName="employeeModel.tblBillingDetailsBothway"><MappingFragment StoreEntitySet="tblBillingDetailsBothway">
+            <ScalarProperty Name="recid" ColumnName="recid" />
+            <ScalarProperty Name="sbillno" ColumnName="sbillno" />
+            <ScalarProperty Name="billFName" ColumnName="billFName" />
+            <ScalarProperty Name="billLName" ColumnName="billLName" />
+            <ScalarProperty Name="billAddress1" ColumnName="billAddress1" />
+            <ScalarProperty Name="billAddress2" ColumnName="billAddress2" />
+            <ScalarProperty Name="billCountry_id" ColumnName="billCountry_id" />
+            <ScalarProperty Name="billZip" ColumnName="billZip" />
+            <ScalarProperty Name="billState_id" ColumnName="billState_id" />
+            <ScalarProperty Name="billCity" ColumnName="billCity" />
+            <ScalarProperty Name="billPhNo" ColumnName="billPhNo" />
+            <ScalarProperty Name="billMobNo" ColumnName="billMobNo" />
+            <ScalarProperty Name="billEmail" ColumnName="billEmail" />
+            <ScalarProperty Name="billInstructions" ColumnName="billInstructions" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblBillingSateServers"><EntityTypeMapping TypeName="employeeModel.tblBillingSateServer"><MappingFragment StoreEntitySet="tblBillingSateServer">
+            <ScalarProperty Name="BillingStateId" ColumnName="BillingStateId" />
+            <ScalarProperty Name="BillingStateName" ColumnName="BillingStateName" />
+            <ScalarProperty Name="BillingCountryId" ColumnName="BillingCountryId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblChapter_Master"><EntityTypeMapping TypeName="employeeModel.tblChapter_Master"><MappingFragment StoreEntitySet="tblChapter_Master">
+            <ScalarProperty Name="Chapter_Id" ColumnName="Chapter_Id" />
+            <ScalarProperty Name="Chapter_Name" ColumnName="Chapter_Name" />
+            <ScalarProperty Name="Chapter_Matter" ColumnName="Chapter_Matter" />
+            <ScalarProperty Name="Chapter_Group_Id" ColumnName="Chapter_Group_Id" />
+            <ScalarProperty Name="Chapter_RecordStatus" ColumnName="Chapter_RecordStatus" />
+            <ScalarProperty Name="Chapter_DateTime" ColumnName="Chapter_DateTime" />
+            <ScalarProperty Name="Chapter_Path" ColumnName="Chapter_Path" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblchilds"><EntityTypeMapping TypeName="employeeModel.tblchild"><MappingFragment StoreEntitySet="tblchild">
+            <ScalarProperty Name="cid" ColumnName="cid" />
+            <ScalarProperty Name="cname" ColumnName="cname" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblCityMasters"><EntityTypeMapping TypeName="employeeModel.tblCityMaster"><MappingFragment StoreEntitySet="tblCityMaster">
+            <ScalarProperty Name="city_id" ColumnName="city_id" />
+            <ScalarProperty Name="city_name" ColumnName="city_name" />
+            <ScalarProperty Name="city_status" ColumnName="city_status" />
+            <ScalarProperty Name="city_datetime" ColumnName="city_datetime" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblExpert_Master"><EntityTypeMapping TypeName="employeeModel.tblExpert_Master"><MappingFragment StoreEntitySet="tblExpert_Master">
+            <ScalarProperty Name="expert_id" ColumnName="expert_id" />
+            <ScalarProperty Name="company_name" ColumnName="company_name" />
+            <ScalarProperty Name="login_id" ColumnName="login_id" />
+            <ScalarProperty Name="expert_name" ColumnName="expert_name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblgrantchilds"><EntityTypeMapping TypeName="employeeModel.tblgrantchild"><MappingFragment StoreEntitySet="tblgrantchild">
+            <ScalarProperty Name="gid" ColumnName="gid" />
+            <ScalarProperty Name="gname" ColumnName="gname" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblItemCategory_Web_Server"><EntityTypeMapping TypeName="employeeModel.tblItemCategory_Web_Server"><MappingFragment StoreEntitySet="tblItemCategory_Web_Server">
+            <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+            <ScalarProperty Name="Category_Name" ColumnName="Category_Name" />
+            <ScalarProperty Name="Parent_Category_id" ColumnName="Parent_Category_id" />
+            <ScalarProperty Name="cat_page" ColumnName="cat_page" />
+            <ScalarProperty Name="cat_level" ColumnName="cat_level" />
+            <ScalarProperty Name="RewriteUrlPath" ColumnName="RewriteUrlPath" />
+            <ScalarProperty Name="Cat_Type" ColumnName="Cat_Type" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblLoginDetalisMasters"><EntityTypeMapping TypeName="employeeModel.tblLoginDetalisMaster"><MappingFragment StoreEntitySet="tblLoginDetalisMaster">
+            <ScalarProperty Name="login_details_id" ColumnName="login_details_id" />
+            <ScalarProperty Name="fname" ColumnName="fname" />
+            <ScalarProperty Name="lname" ColumnName="lname" />
+            <ScalarProperty Name="dob" ColumnName="dob" />
+            <ScalarProperty Name="ref_id" ColumnName="ref_id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblLoginMasters"><EntityTypeMapping TypeName="employeeModel.tblLoginMaster"><MappingFragment StoreEntitySet="tblLoginMaster">
+            <ScalarProperty Name="login_id" ColumnName="login_id" />
+            <ScalarProperty Name="username" ColumnName="username" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+            <ScalarProperty Name="address_id" ColumnName="address_id" />
+            <ScalarProperty Name="login_details_id" ColumnName="login_details_id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblOrder_Pg_Details"><EntityTypeMapping TypeName="employeeModel.tblOrder_Pg_Details"><MappingFragment StoreEntitySet="tblOrder_Pg_Details">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="sbillno" ColumnName="sbillno" />
+            <ScalarProperty Name="pgid" ColumnName="pgid" />
+            <ScalarProperty Name="poid" ColumnName="poid" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblPackage_Master"><EntityTypeMapping TypeName="employeeModel.tblPackage_Master"><MappingFragment StoreEntitySet="tblPackage_Master">
+            <ScalarProperty Name="package_id" ColumnName="package_id" />
+            <ScalarProperty Name="package_name" ColumnName="package_name" />
+            <ScalarProperty Name="serviceno" ColumnName="serviceno" />
+            <ScalarProperty Name="cityno" ColumnName="cityno" />
+            <ScalarProperty Name="package_price" ColumnName="package_price" />
+            <ScalarProperty Name="package_type" ColumnName="package_type" />
+            <ScalarProperty Name="packagedesc" ColumnName="packagedesc" />
+            <ScalarProperty Name="package_status" ColumnName="package_status" />
+            <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblparents"><EntityTypeMapping TypeName="employeeModel.tblparent"><MappingFragment StoreEntitySet="tblparent">
+            <ScalarProperty Name="pid" ColumnName="pid" />
+            <ScalarProperty Name="pname" ColumnName="pname" />
+            <ScalarProperty Name="paddress" ColumnName="paddress" />
+            <ScalarProperty Name="cid" ColumnName="cid" />
+            <ScalarProperty Name="sid" ColumnName="sid" />
+            <ScalarProperty Name="gid" ColumnName="gid" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblPaymentGatewayMasters"><EntityTypeMapping TypeName="employeeModel.tblPaymentGatewayMaster"><MappingFragment StoreEntitySet="tblPaymentGatewayMaster">
+            <ScalarProperty Name="pgid" ColumnName="pgid" />
+            <ScalarProperty Name="pGatewayName" ColumnName="pGatewayName" />
+            <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+            <ScalarProperty Name="ServiceTax" ColumnName="ServiceTax" />
+            <ScalarProperty Name="Charge" ColumnName="Charge" />
+            <ScalarProperty Name="FixedCharge" ColumnName="FixedCharge" />
+            <ScalarProperty Name="pg_status" ColumnName="pg_status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblPaymentOptionGateway_Relation"><EntityTypeMapping TypeName="employeeModel.tblPaymentOptionGateway_Relation"><MappingFragment StoreEntitySet="tblPaymentOptionGateway_Relation">
+            <ScalarProperty Name="poid" ColumnName="poid" />
+            <ScalarProperty Name="pgid" ColumnName="pgid" />
+            <ScalarProperty Name="Rank" ColumnName="Rank" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblPaymentOptionMasters"><EntityTypeMapping TypeName="employeeModel.tblPaymentOptionMaster"><MappingFragment StoreEntitySet="tblPaymentOptionMaster">
+            <ScalarProperty Name="Poid" ColumnName="Poid" />
+            <ScalarProperty Name="pOptionName" ColumnName="pOptionName" />
+            <ScalarProperty Name="Rank" ColumnName="Rank" />
+            <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+            <ScalarProperty Name="Image" ColumnName="Image" />
+            <ScalarProperty Name="Po_desc" ColumnName="Po_desc" />
+            <ScalarProperty Name="po_status" ColumnName="po_status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblPosBothays"><EntityTypeMapping TypeName="employeeModel.tblPosBothay"><MappingFragment StoreEntitySet="tblPosBothay">
+            <ScalarProperty Name="Pos_Id" ColumnName="Pos_Id" />
+            <ScalarProperty Name="Pos_OName" ColumnName="Pos_OName" />
+            <ScalarProperty Name="mkw" ColumnName="mkw" />
+            <ScalarProperty Name="lkw" ColumnName="lkw" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblRatings"><EntityTypeMapping TypeName="employeeModel.tblRating"><MappingFragment StoreEntitySet="tblRating">
+            <ScalarProperty Name="rating_id" ColumnName="rating_id" />
+            <ScalarProperty Name="expert_id" ColumnName="expert_id" />
+            <ScalarProperty Name="login_id" ColumnName="login_id" />
+            <ScalarProperty Name="status" ColumnName="status" />
+            <ScalarProperty Name="rating" ColumnName="rating" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblregisters"><EntityTypeMapping TypeName="employeeModel.tblregister"><MappingFragment StoreEntitySet="tblregister">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="address" ColumnName="address" />
+            <ScalarProperty Name="price" ColumnName="price" />
+            <ScalarProperty Name="totprice" ColumnName="totprice" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblsalesDetails_Bothway"><EntityTypeMapping TypeName="employeeModel.tblsalesDetails_Bothway"><MappingFragment StoreEntitySet="tblsalesDetails_Bothway">
+            <ScalarProperty Name="SlNo" ColumnName="SlNo" />
+            <ScalarProperty Name="SbillBo" ColumnName="SbillBo" />
+            <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+            <ScalarProperty Name="qty" ColumnName="qty" />
+            <ScalarProperty Name="price" ColumnName="price" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblSalesDetailsBothways"><EntityTypeMapping TypeName="employeeModel.tblSalesDetailsBothway"><MappingFragment StoreEntitySet="tblSalesDetailsBothway">
+            <ScalarProperty Name="recid" ColumnName="recid" />
+            <ScalarProperty Name="sbillno" ColumnName="sbillno" />
+            <ScalarProperty Name="slno" ColumnName="slno" />
+            <ScalarProperty Name="qty" ColumnName="qty" />
+            <ScalarProperty Name="price" ColumnName="price" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblSalesMasterBothways"><EntityTypeMapping TypeName="employeeModel.tblSalesMasterBothway"><MappingFragment StoreEntitySet="tblSalesMasterBothway">
+            <ScalarProperty Name="sbillno" ColumnName="sbillno" />
+            <ScalarProperty Name="sales_aot" ColumnName="sales_aot" />
+            <ScalarProperty Name="dateofdelivery" ColumnName="dateofdelivery" />
+            <ScalarProperty Name="updatedatetime" ColumnName="updatedatetime" />
+            <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+            <ScalarProperty Name="sbillstatus" ColumnName="sbillstatus" />
+            <ScalarProperty Name="ipaddress" ColumnName="ipaddress" />
+            <ScalarProperty Name="dateofsales" ColumnName="dateofsales" />
+            <ScalarProperty Name="poid" ColumnName="poid" />
+            <ScalarProperty Name="pgid" ColumnName="pgid" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblServiceMasters"><EntityTypeMapping TypeName="employeeModel.tblServiceMaster"><MappingFragment StoreEntitySet="tblServiceMaster">
+            <ScalarProperty Name="service_id" ColumnName="service_id" />
+            <ScalarProperty Name="service_name" ColumnName="service_name" />
+            <ScalarProperty Name="service_status" ColumnName="service_status" />
+            <ScalarProperty Name="service_datetime" ColumnName="service_datetime" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblShippingCityMasters"><EntityTypeMapping TypeName="employeeModel.tblShippingCityMaster"><MappingFragment StoreEntitySet="tblShippingCityMaster">
+            <ScalarProperty Name="ShippingCityId" ColumnName="ShippingCityId" />
+            <ScalarProperty Name="ShippingCityName" ColumnName="ShippingCityName" />
+            <ScalarProperty Name="ShippingStateId" ColumnName="ShippingStateId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblShippingDetailsBothways"><EntityTypeMapping TypeName="employeeModel.tblShippingDetailsBothway"><MappingFragment StoreEntitySet="tblShippingDetailsBothway">
+            <ScalarProperty Name="rec_id" ColumnName="rec_id" />
+            <ScalarProperty Name="sbillno" ColumnName="sbillno" />
+            <ScalarProperty Name="shipFName" ColumnName="shipFName" />
+            <ScalarProperty Name="shipLName" ColumnName="shipLName" />
+            <ScalarProperty Name="shipAddress1" ColumnName="shipAddress1" />
+            <ScalarProperty Name="shipAddress2" ColumnName="shipAddress2" />
+            <ScalarProperty Name="shipZip" ColumnName="shipZip" />
+            <ScalarProperty Name="shipCountry_id" ColumnName="shipCountry_id" />
+            <ScalarProperty Name="shipState_id" ColumnName="shipState_id" />
+            <ScalarProperty Name="shipCity_id" ColumnName="shipCity_id" />
+            <ScalarProperty Name="shipPhNo" ColumnName="shipPhNo" />
+            <ScalarProperty Name="shipMobNo" ColumnName="shipMobNo" />
+            <ScalarProperty Name="shipEmail" ColumnName="shipEmail" />
+            <ScalarProperty Name="shipMsg" ColumnName="shipMsg" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblShippingStateMasters"><EntityTypeMapping TypeName="employeeModel.tblShippingStateMaster"><MappingFragment StoreEntitySet="tblShippingStateMaster">
+            <ScalarProperty Name="ShippingSateId" ColumnName="ShippingSateId" />
+            <ScalarProperty Name="ShippingSateName" ColumnName="ShippingSateName" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblSiteChapterMasters"><EntityTypeMapping TypeName="employeeModel.tblSiteChapterMaster"><MappingFragment StoreEntitySet="tblSiteChapterMaster">
+            <ScalarProperty Name="Site_id" ColumnName="Site_id" />
+            <ScalarProperty Name="Parent_Id" ColumnName="Parent_Id" />
+            <ScalarProperty Name="chapter_level" ColumnName="chapter_level" />
+            <ScalarProperty Name="Chapter_Id" ColumnName="Chapter_Id" />
+            <ScalarProperty Name="Chapter_Path" ColumnName="Chapter_Path" />
+            <ScalarProperty Name="metadata" ColumnName="metadata" />
+            <ScalarProperty Name="metadesc" ColumnName="metadesc" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblstates"><EntityTypeMapping TypeName="employeeModel.tblstate"><MappingFragment StoreEntitySet="tblstate">
+            <ScalarProperty Name="sid" ColumnName="sid" />
+            <ScalarProperty Name="sname" ColumnName="sname" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblSubServiceMasters"><EntityTypeMapping TypeName="employeeModel.tblSubServiceMaster"><MappingFragment StoreEntitySet="tblSubServiceMaster">
+            <ScalarProperty Name="subservice_id" ColumnName="subservice_id" />
+            <ScalarProperty Name="subservice_name" ColumnName="subservice_name" />
+            <ScalarProperty Name="subservice_status" ColumnName="subservice_status" />
+            <ScalarProperty Name="subservice_datetime" ColumnName="subservice_datetime" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tblUserMasters"><EntityTypeMapping TypeName="employeeModel.tblUserMaster"><MappingFragment StoreEntitySet="tblUserMaster">
+            <ScalarProperty Name="uid" ColumnName="uid" />
+            <ScalarProperty Name="UserID" ColumnName="UserID" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="testProducts"><EntityTypeMapping TypeName="employeeModel.testProduct"><MappingFragment StoreEntitySet="testProduct">
+            <ScalarProperty Name="pid" ColumnName="pid" />
+            <ScalarProperty Name="pname" ColumnName="pname" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="upload_file"><EntityTypeMapping TypeName="employeeModel.upload_file"><MappingFragment StoreEntitySet="upload_file">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="tittle" ColumnName="tittle" />
+            <ScalarProperty Name="pic_name" ColumnName="pic_name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Videos"><EntityTypeMapping TypeName="employeeModel.Video"><MappingFragment StoreEntitySet="Videos">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Video1" ColumnName="Video" />
+            <ScalarProperty Name="Video_Name" ColumnName="Video_Name" />
+            <ScalarProperty Name="Video_Size" ColumnName="Video_Size" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="employee">
+        <EntityTypeShape EntityType="employeeModel.abbr_subchild" Width="1.5" PointX="0.75" PointY="0.75" Height="1.427958984375" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.admin_login" Width="1.5" PointX="2.75" PointY="0.75" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.ADMIN_USER_MASTER" Width="1.5" PointX="0.75" PointY="3.75" Height="1.9210009765624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.Customer" Width="1.5" PointX="2.75" PointY="3.75" Height="2.7427376302083335" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.dept" Width="1.5" PointX="4.75" PointY="0.75" Height="1.2636116536458317" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.emp" Width="1.5" PointX="4.75" PointY="3.75" Height="1.592306315104167" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.emp_class" Width="1.5" PointX="6.75" PointY="0.75" Height="1.2636116536458317" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.emp1" Width="1.5" PointX="6.75" PointY="3.75" Height="3.4001269531249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.emp2" Width="1.5" PointX="0.75" PointY="7.75" Height="1.7566536458333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.employee" Width="1.5" PointX="2.75" PointY="7.75" Height="1.2636116536458317" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.employee1" Width="1.5" PointX="8.75" PointY="0.75" Height="1.2636116536458353" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.fan" Width="1.5" PointX="8.75" PointY="3.75" Height="1.7566536458333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.item" Width="1.5" PointX="4.75" PointY="8.75" Height="2.2496956380208388" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.location" Width="1.5" PointX="8.75" PointY="6.75" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.Person" Width="1.5" PointX="6.75" PointY="9.75" Height="1.9210009765625031" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.performerlist" Width="1.5" PointX="8.75" PointY="9.75" Height="3.0714322916666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.product" Width="1.5" PointX="10.75" PointY="0.75" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.Product1" Width="1.5" PointX="0.75" PointY="10.75" Height="2.5783902994791674" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.ranktable" Width="1.5" PointX="10.75" PointY="3.75" Height="1.2636116536458388" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.student" Width="1.5" PointX="10.75" PointY="6.75" Height="1.4279589843750031" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.sysdiagram" Width="1.5" PointX="10.75" PointY="9.75" Height="1.7566536458333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblAddressMaster" Width="1.5" PointX="2.75" PointY="11.75" Height="2.2496956380208282" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblArticle_Chapter_Relation" Width="1.5" PointX="12.75" PointY="0.75" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblArticleMaster" Width="1.5" PointX="12.75" PointY="3.75" Height="2.2496956380208246" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblBillingCountryServer" Width="1.5" PointX="4.75" PointY="12.75" Height="1.2636116536458246" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblBillingDetailsBothway" Width="1.5" PointX="12.75" PointY="6.75" Height="3.2357796223958246" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblBillingSateServer" Width="1.5" PointX="12.75" PointY="10.75" Height="1.4279589843750102" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblChapter_Master" Width="1.5" PointX="6.75" PointY="13.75" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblchild" Width="1.5" PointX="8.75" PointY="13.75" Height="1.2636116536458246" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblCityMaster" Width="1.5" PointX="10.75" PointY="13.75" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblExpert_Master" Width="1.5" PointX="12.75" PointY="13.75" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblgrantchild" Width="1.5" PointX="14.75" PointY="0.75" Height="1.2636116536458246" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblItemCategory_Web_Server" Width="1.5" PointX="0.75" PointY="14.75" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblLoginDetalisMaster" Width="1.5" PointX="14.75" PointY="3.75" Height="1.7566536458333246" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblLoginMaster" Width="1.5" PointX="14.75" PointY="6.75" Height="1.7566536458333246" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblOrder_Pg_Details" Width="1.5" PointX="14.75" PointY="9.75" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblPackage_Master" Width="1.5" PointX="14.75" PointY="12.75" Height="2.4140429687500102" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblparent" Width="1.5" PointX="2.75" PointY="15.75" Height="1.9210009765625102" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblPaymentGatewayMaster" Width="1.5" PointX="16.75" PointY="0.75" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblPaymentOptionGateway_Relation" Width="1.5" PointX="16.75" PointY="3.75" Height="1.4279589843750102" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblPaymentOptionMaster" Width="1.5" PointX="4.75" PointY="16.75" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblPosBothay" Width="1.5" PointX="16.75" PointY="6.75" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblRating" Width="1.5" PointX="6.75" PointY="16.75" Height="1.7566536458333246" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblregister" Width="1.5" PointX="8.75" PointY="16.75" Height="1.7566536458333246" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblsalesDetails_Bothway" Width="1.5" PointX="16.75" PointY="9.75" Height="1.7566536458333246" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblSalesDetailsBothway" Width="1.5" PointX="10.75" PointY="16.75" Height="1.7566536458333246" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblSalesMasterBothway" Width="1.5" PointX="16.75" PointY="12.75" Height="2.5783902994791674" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblServiceMaster" Width="1.5" PointX="12.75" PointY="16.75" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblShippingCityMaster" Width="1.5" PointX="14.75" PointY="16.75" Height="1.4279589843749818" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblShippingDetailsBothway" Width="1.5" PointX="16.75" PointY="16.75" Height="3.2357796223958246" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblShippingStateMaster" Width="1.5" PointX="18.75" PointY="0.75" Height="1.2636116536458246" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblSiteChapterMaster" Width="1.5" PointX="0.75" PointY="18.75" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblstate" Width="1.5" PointX="18.75" PointY="3.75" Height="1.2636116536458246" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblSubServiceMaster" Width="1.5" PointX="18.75" PointY="6.75" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.tblUserMaster" Width="1.5" PointX="18.75" PointY="9.75" Height="1.4279589843749818" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.testProduct" Width="1.5" PointX="18.75" PointY="12.75" Height="1.2636116536458246" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.upload_file" Width="1.5" PointX="18.75" PointY="15.75" Height="1.4279589843749818" IsExpanded="true" />
+        <EntityTypeShape EntityType="employeeModel.Video" Width="1.5" PointX="18.75" PointY="18.75" Height="1.5923063151041674" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

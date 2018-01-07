@@ -1,0 +1,25 @@
+﻿@model IEnumerable<MvcWebGrid.Models.Book>
+         
+<table id="grid" class="display">
+    <thead>
+        <tr>
+            <th>
+                BookID
+            </th>
+            <th>
+                BookNm
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.BookID
+                </td>
+                <td>@item.BookNm
+                </td>
+            </tr> 
+        }
+    </tbody>
+</table>

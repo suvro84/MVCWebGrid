@@ -1,0 +1,10 @@
+﻿<?xml  version="1.0" encoding="utf-8"?>
+<RolePrev xmlns="http://schemas.microsoft.com">
+  <RoleUser>
+    <Role>Admin</Role>
+    <Previleges>Add</Previleges>
+    <Previleges>Edit</Previleges>
+    <Previleges>Del</Previleges>
+    <Previleges>View</Previleges>
+  </RoleUser>
+</RolePrev>

@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "MergedCellGrid";
+   
+}
+@model MvcWebGrid.Models.MergedCelGridModel
+<h2>
+    MergedCellGrid</h2>
+<table id="grid" class="display">
+    <thead>
+        <tr>
+            <th>
+                CB
+            </th>
+            <th>
+                id
+            </th>
+            <th>
+                accountno
+            </th>
+            <th>
+                scCode
+            </th>
+            <th>
+                calculations
+            </th>
+            <th>
+                level
+            </th>
+            <th>
+                vdt
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.mergedRecordsGrid)
+        {
+            <tr class="btnTest" id="Row@{@item.id}" >
+                <td>
+                    <input type="checkbox" id="@item.id" name="cb" value="@item.id" class="sel" />
+                </td>
+                <td>
+                    <span class="cssid">@item.id</span>
+                </td>
+                <td>
+                    <span class="cssaccountno">@item.accountno</span>
+                </td>
+                <td>
+                    <span class="cssaddress">@item.scCode</span>
+                </td>
+                <td class="">
+                    <span class="cssCalc">@GenerateCalc(item.id)</span>
+                </td>
+                <td>@item.level
+                </td>
+                <td>@item.vdt
+                </td>
+            </tr> 
+        }
+    </tbody>
+</table>
+@helper     GenerateCalc(int id)
+    {
+        var calculationList = Model.calcList.Where(m => m.id == id);       
+    <table class="cssTabCalc">
+        @foreach (var item in calculationList)
+        {
+            <tr>
+                <td style="display: none">
+                    <span class="csscalcName">@item.id</span>
+                </td>
+                <td>
+                    <span class="csscalcName">@item.calcName</span>
+                </td>
+            </tr>
+        }
+    </table>  
+        
+   
+    
+}
+<div id="div1">
+</div>
+<input type="hidden" id="hdCalVal" />
+<input type="hidden" id="dataToBeUpdated" />
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".sel").live('click', function () {
+            $("#hdCalVal").val("");
+            $("#dataToBeUpdated").val("");
+            if ($(this).attr('checked')) {
+
+                if ($("#dataToBeUpdated").val() == "") {
+
+                    $("#dataToBeUpdated").val($(this).attr("value"));
+                }
+                else {
+                    $("#dataToBeUpdated").val($("#dataToBeUpdated").val() + "," + $(this).attr("value"));
+                }
+
+                var text = $(this).parent().parent().children().find(".cssCalc").html();
+                $('#div1').append($(text));
+                $("#div1 tr").each(function (i) {
+                    var $tds = $(this).find('td');
+                    if ($("#hdCalVal").val() == "") {
+                        if ($tds.eq(i).text().indexOf($tds.eq(i).text()) > -1) {
+                            $("#hdCalVal").val($tds.eq(0).text() + "-" + $tds.eq(1).text());
+                        }
+                    }
+                    else {
+                        if ($tds.eq(i).text().indexOf($tds.eq(i).text()) > -1) {
+                            $("#hdCalVal").val($("#hdCalVal").val() + "," + $tds.eq(1).text());
+                        }
+                    }
+                });
+                alert($("#hdCalVal").val());
+            }
+            else {
+            }
+        });
+    });  
+</script>
